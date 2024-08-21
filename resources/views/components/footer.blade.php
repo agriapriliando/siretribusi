@@ -1,12 +1,17 @@
 <div class="footer">
+    <style>
+        a {
+            color: #55f763;
+        }
+    </style>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0" class="col-lg-3">
                 <p class="mb-4"><img src="{{ asset('assets') }}/images/logo.png" alt="Image" class="img-fluid"></p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto iure.</p>
                 <p><a href="#">Learn More</a></p>
             </div>
-            <div class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="col-lg-3">
                 <h3 class="footer-heading"><span>Our Campus</span></h3>
                 <ul class="list-unstyled">
                     <li><a href="#">Acedemic</a></li>
@@ -17,7 +22,7 @@
                     <li><a href="#">Human Resources</a></li>
                 </ul>
             </div>
-            <div class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" class="col-lg-3">
                 <h3 class="footer-heading"><span>Our Courses</span></h3>
                 <ul class="list-unstyled">
                     <li><a href="#">Math</a></li>
@@ -28,7 +33,7 @@
                     <li><a href="#">Computer Science</a></li>
                 </ul>
             </div>
-            <div class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="600" data-aos-offset="0" class="col-lg-3">
                 <h3 class="footer-heading"><span>Contact</span></h3>
                 <ul class="list-unstyled">
                     <li><a href="#">Help Center</a></li>
@@ -46,9 +51,7 @@
                     <p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made
+                        2024 All rights reserved | This template is made
                         with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>

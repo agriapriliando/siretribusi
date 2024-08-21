@@ -15,15 +15,18 @@
                                 <a href="#" class="nav-link text-left">Home</a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link text-left">Transaksi</a>
+                                <a href="{{ url('rental') }}" wire:navigate class="nav-link text-left">Transaksi</a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link text-left">Penyewa</a>
+                                <a href="{{ url('tenant') }}" wire:navigate class="nav-link text-left">Penyewa</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('upload/list') }}" wire:navigate class="nav-link text-left">Validasi</a>
                             </li>
                             <li class="has-children">
                                 <a href="#" class="nav-link text-left">Data</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Objek Sewa</a></li>
+                                    <li><a href="{{ url('item') }}" wire:navigate>Objek Sewa</a></li>
                                 </ul>
                             </li>
                             <li>
