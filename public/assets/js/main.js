@@ -1,7 +1,8 @@
 AOS.init({
-	duration: 800,
-	easing: 'slide',
-	once: true
+	duration: 300,
+	// easing: 'slide',
+	// once: true,
+	easing: 'ease-out-back',
 });
 
 jQuery(document).ready(function ($) {

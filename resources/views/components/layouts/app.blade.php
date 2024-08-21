@@ -67,7 +67,7 @@
                 box-shadow: 0 0 3px #017e03;
             }
         </style>
-        <div class="my-5">
+        <div class="mt-5">
             {{-- content --}}
             {{ $slot }}
             {{-- end content --}}
@@ -90,8 +90,8 @@
             </div>
 
 
+            <x-footer></x-footer>
         </div>
-        <x-footer></x-footer>
         <!-- .site-wrap -->
 
         <!-- loader -->

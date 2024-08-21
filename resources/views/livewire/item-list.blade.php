@@ -9,7 +9,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <a href="#" class="btn btn-success mb-2"><i class="icon-plus"></i> Tambah</a>
+                <a href="{{ url('item/create') }}" wire:navigate class="btn btn-success mb-2"><i class="icon-plus"></i> Tambah</a>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>

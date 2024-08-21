@@ -6,12 +6,12 @@
     </style>
     <div class="container">
         <div class="row">
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0" class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="0" class="col-lg-3">
                 <p class="mb-4"><img src="{{ asset('assets') }}/images/logo.png" alt="Image" class="img-fluid"></p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto iure.</p>
                 <p><a href="#">Learn More</a></p>
             </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="200" data-aos-offset="0" class="col-lg-3">
                 <h3 class="footer-heading"><span>Our Campus</span></h3>
                 <ul class="list-unstyled">
                     <li><a href="#">Acedemic</a></li>
@@ -22,7 +22,7 @@
                     <li><a href="#">Human Resources</a></li>
                 </ul>
             </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0" class="col-lg-3">
                 <h3 class="footer-heading"><span>Our Courses</span></h3>
                 <ul class="list-unstyled">
                     <li><a href="#">Math</a></li>
@@ -33,7 +33,7 @@
                     <li><a href="#">Computer Science</a></li>
                 </ul>
             </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="600" data-aos-offset="0" class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="col-lg-3">
                 <h3 class="footer-heading"><span>Contact</span></h3>
                 <ul class="list-unstyled">
                     <li><a href="#">Help Center</a></li>
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row d-none">
             <div class="col-12">
                 <div class="copyright">
                     <p>
