@@ -6,41 +6,30 @@
     </style>
     <div class="container">
         <div class="row">
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="0" class="col-lg-3">
-                <p class="mb-4"><img src="{{ asset('assets') }}/images/logo.png" alt="Image" class="img-fluid"></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto iure.</p>
-                <p><a href="#">Learn More</a></p>
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="0" class="col-lg-6">
+                <p class="mb-4"><img src="{{ asset('assets') }}/images/logo_simbida.png" style="max-width: 300px" alt="Image" class="img-fluid"></p>
+                <p style="font-size: 19px">Dinas Perdagangan, Koperasi, UKM, dan Perindustrian Kota Palangka Raya bertugas mengelola dan mengembangkan sektor perdagangan, koperasi, usaha kecil dan
+                    menengah,
+                    serta industri
+                    untuk mendukung pertumbuhan ekonomi lokal dan kesejahteraan masyarakat</p>
             </div>
             <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="200" data-aos-offset="0" class="col-lg-3">
-                <h3 class="footer-heading"><span>Our Campus</span></h3>
-                <ul class="list-unstyled">
-                    <li><a href="#">Acedemic</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Our Interns</a></li>
-                    <li><a href="#">Our Leadership</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Human Resources</a></li>
+                <h3 style="font-size: 23px" class="footer-heading"><span>Pintasan</span></h3>
+                <ul style="font-size: 19px" class="list-unstyled">
+                    <li><a href="#">Transaksi</a></li>
+                    <li><a href="#">Penyewa</a></li>
+                    <li><a href="#">Objek Sewa</a></li>
+                    <li><a href="#">Validasi Pembayaran</a></li>
+                    <li><a href="#">Logout</a></li>
                 </ul>
             </div>
             <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0" class="col-lg-3">
-                <h3 class="footer-heading"><span>Our Courses</span></h3>
-                <ul class="list-unstyled">
-                    <li><a href="#">Math</a></li>
-                    <li><a href="#">Science &amp; Engineering</a></li>
-                    <li><a href="#">Arts &amp; Humanities</a></li>
-                    <li><a href="#">Economics &amp; Finance</a></li>
-                    <li><a href="#">Business Administration</a></li>
-                    <li><a href="#">Computer Science</a></li>
-                </ul>
-            </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400" data-aos-offset="0" class="col-lg-3">
-                <h3 class="footer-heading"><span>Contact</span></h3>
-                <ul class="list-unstyled">
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Support Community</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="#">Share Your Story</a></li>
-                    <li><a href="#">Our Supporters</a></li>
+                <h3 style="font-size: 23px" class="footer-heading"><span>Laporan</span></h3>
+                <ul style="font-size: 19px" class="list-unstyled">
+                    <li><a href="#">Daftar Penyewa</a></li>
+                    <li><a href="#">Daftar Objek Sewa</a></li>
+                    <li><a href="#">Daftar Transaksi</a></li>
+                    <li><a href="#">Daftar Bukti Pembayaran</a></li>
                 </ul>
             </div>
         </div>
