@@ -24,7 +24,8 @@
 
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/flaticon/font/flaticon.css">
 
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/aos.css">
+    {{-- <link rel="stylesheet" href="{{ asset('assets') }}/css/aos.css"> --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link href="{{ asset('assets') }}/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
@@ -108,7 +109,8 @@
     <script src="{{ asset('assets') }}/js/jquery.countdown.min.js"></script>
     <script src="{{ asset('assets') }}/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ asset('assets') }}/js/jquery.easing.1.3.js"></script>
-    <script src="{{ asset('assets') }}/js/aos.js"></script>
+    {{-- <script src="{{ asset('assets') }}/js/aos.js"></script> --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ asset('assets') }}/js/jquery.fancybox.min.js"></script>
     <script src="{{ asset('assets') }}/js/jquery.sticky.js"></script>
     <script src="{{ asset('assets') }}/js/jquery.mb.YTPlayer.min.js"></script>
@@ -138,9 +140,11 @@
                     exportOptions: {
                         columns: ':visible'
                     }
-                }, 'colvis'
+                }, 'colvis', 'pageLength'
             ]
         });
+    </script>
+    <script>
         $(document).ready(function() {
             $('#penyewa').select2({
                 theme: "bootstrap4",

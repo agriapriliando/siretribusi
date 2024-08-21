@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,27 +14,17 @@ class ItemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('items')->insert([
-            [
-                'nama' => 'Kontainer 01',
-                'keterangan' => 'Kontainer Di Jalan Yos Sudarso',
-                'status' => 'Aktif'
-            ],
-            [
-                'nama' => 'Kontainer 02',
-                'keterangan' => 'Kontainer Di Jalan Yos Sudarso',
-                'status' => 'Aktif'
-            ],
-            [
-                'nama' => 'Kontainer 03',
-                'keterangan' => 'Kontainer Di Jalan Yos Sudarso',
-                'status' => 'Aktif'
-            ],
-            [
-                'nama' => 'Kontainer 04',
-                'keterangan' => 'Kontainer Di Jalan Yos Sudarso',
-                'status' => 'Aktif'
-            ],
-        ]);
+        $arr = ['Aktif', 'Non Aktif'];
+        for ($i = 1; $i < 30; $i++) {
+            DB::table('items')->insert([
+                [
+                    'nama' => 'Kontainer ' . $i++,
+                    'keterangan' => 'Kontainer Di Jalan Yos Sudarso',
+                    'status' => $arr[array_rand($arr)],
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+            ]);
+        }
     }
 }

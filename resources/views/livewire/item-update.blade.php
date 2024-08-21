@@ -11,11 +11,11 @@
         <div class="row justify-content-center text-center">
             <div class="col-lg-4 mb-5">
                 <h2 class="section-title-underline"> <i class="icon-plus"></i>
-                    <span>Tambah Item Sewa</span>
+                    <span>Update Item Sewa</span>
                 </h2>
             </div>
         </div>
-        <form wire:submit.prevent="create">
+        <form wire:submit.prevent="update">
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label for="username">Nama Item</label>
@@ -23,15 +23,14 @@
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="email">Status</label>
-                    <input type="text" id="status" class="form-control form-control-lg" value="Non Aktif" disabled>
+                    <input type="text" id="status" class="form-control form-control-lg" value="{{ $status }}" disabled>
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="email">Keterangan</label>
                     <textarea wire:model="keterangan" type="text" id="keterangan" class="form-control form-control-lg"></textarea>
                 </div>
                 <div class="col-md-12 form-group">
-                    <input type="submit" value="Tambah" class="btn btn-success btn-lg px-5">
-                    <input wire:click.prevent="resetform" type="button" value="Reset" class="btn btn-warning btn-lg px-5">
+                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5">
                     <a href="{{ url('item') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>
             </div>
