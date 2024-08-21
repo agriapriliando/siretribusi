@@ -5,7 +5,7 @@
             <div class="d-flex align-items-center">
                 <div class="site-logo">
                     <a href="#" class="d-block">
-                        <img src="{{ asset('assets') }}/images/logo.jpg" alt="Image" class="img-fluid">
+                        <img src="{{ asset('assets') }}/images/logo_simbida.png" style="max-width: 160px" alt="Image" class="img-fluid">
                     </a>
                 </div>
                 <div class="mr-auto">
@@ -40,9 +40,7 @@
                 <div class="ml-auto">
                     <div class="social-wrap">
                         <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-twitter"></span></a>
-                        <a href="#"><span class="icon-linkedin"></span></a>
+                        <a href="#"><span class="icon-instagram"></span></a>
 
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
                     </div>

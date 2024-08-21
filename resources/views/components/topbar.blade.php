@@ -11,11 +11,10 @@
                 }
             </style>
             <div class="col-lg-12 text-center">
-                <a href="#" class="small mr-3 green"><span class="icon-question-circle-o mr-2"></span> Have a
-                    questions?</a>
-                <a href="#" class="small mr-3 green"><span class="icon-phone2 mr-2"></span> 10 20 123 456</a>
+                <a href="#" class="small mr-3 green"><span class="icon-question-circle-o mr-2"></span> Ajukan Pertanyaan?</a>
+                <a href="#" class="small mr-3 green"><span class="icon-phone2 mr-2"></span> 085249441182</a>
                 <a href="#" class="small mr-3 green"><span class="icon-envelope-o mr-2"></span>
-                    info@mydomain.com</a>
+                    info@simdida.go.id</a>
             </div>
         </div>
     </div>

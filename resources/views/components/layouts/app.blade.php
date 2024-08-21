@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets') }}/js/select2/select2.min.css">
     <link rel="stylesheet" href="{{ asset('assets') }}/js/select2/select2-bootstrap4.min.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
