@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ItemList extends Component
 {
-    public $items, $item, $nama, $keterangan, $updateitem = FALSE;
+    public $items, $item, $nama, $keterangan;
 
     public function resetform()
     {

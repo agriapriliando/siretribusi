@@ -23,14 +23,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', RentalList::class);
-Route::get('rental', RentalList::class);
-Route::get('rental/create', RentalCreate::class);
-Route::get('tenant', TenantList::class);
-Route::get('tenant/create', TenantCreate::class);
 Route::get('item', ItemList::class);
 Route::get('item/create', ItemCreate::class);
 Route::get('item/{item}', ItemUpdate::class);
+
+Route::get('tenant', TenantList::class);
+Route::get('tenant/create', TenantCreate::class);
+
+Route::get('/', RentalList::class);
+Route::get('rental', RentalList::class);
+Route::get('rental/create', RentalCreate::class);
 Route::get('upload', UploadBukti::class);
 Route::get('upload/list', UploadVal::class);
 Route::get('upload/success', UploadSuccess::class);

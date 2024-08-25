@@ -20,40 +20,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Andrea <br>
-                                <div class="badge badge-pill badge-warning">NIK : 6278976876876</div>
-                            </td>
-                            <td><a href="#" class="btn btn-sm btn-success"><i class="icon-whatsapp"></i>
-                                    085249441182</a>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
-                                    <form action="">
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Harton <br>
-                                <div class="badge badge-pill badge-warning">NIK : 62832937829836</div>
-                            </td>
-                            <td><a href="#" class="btn btn-sm btn-success"><i class="icon-whatsapp"></i>
-                                    086223492874</a>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
-                                    <form action="">
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach ($tenants as $tenant)
+                            <tr wire:key={{ $tenant->id }}>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $tenant->nama }} <br>
+                                    <div class="badge badge-pill badge-warning">NIK : {{ $tenant->nik }}</div>
+                                </td>
+                                <td><a href="#" class="btn btn-sm btn-success"><i class="icon-whatsapp"></i>
+                                        {{ $tenant->nohp }}</a>
+                                </td>
+                                <td class="d-flex">
+                                    <a href="{{ url('tenant/' . $tenant->id) }}" wire:navigate class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
+                                    <button type="button" wire:click="hapusTenant('{{ $tenant->id }}')" wire:confirm="Yakin ingin menghapus {{ $tenant->nama }}?" class="btn btn-sm btn-danger"><i
+                                            class="icon-trash"></i></button>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
