@@ -3,10 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Tenant;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 
@@ -14,32 +12,16 @@ class TenantCreate extends Component
 {
     use WithFileUploads;
     public Tenant $tenant;
-    #[Validate('required|min:5|max:16|unique:tenants,nik')]
+    #[Validate('required|min:16|max:16|unique:tenants,nik')]
     public $nik = '';
-    // #[Validate('required|min:5|max:16')]
+    #[Validate('required')]
     public $nama = '';
-    // #[Validate('required|min:5')]
+    #[Validate('required|min:5')]
     public $alamat = '';
-    // #[Validate('required|min:5')]
+    #[Validate('required|min:9|numeric')]
     public $nohp = '';
-
-
-    #[Validate('image|max:512')] // 512Kb Max
+    #[Validate('required|mimes:jpeg,jpg,png|max:512')] // 512Kb Max
     public $file_ktp;
-
-    // protected $rules = [
-    //     'nik' => 'required|unique:tenants,nik',
-    // ];
-
-    // public function rules()
-    // {
-    //     return [
-    //         'nik' => [
-    //             'required',
-    //             Rule::unique('tenants')->ignore($this->tenant),
-    //         ],
-    //     ];
-    // }
 
     public function resetForm()
     {
@@ -55,8 +37,8 @@ class TenantCreate extends Component
         $this->validate();
         // $this->file_ktp->store(path: 'file_ktp');
         // dd($this->file_ktp->getClientOriginalExtension());
-        $nama_file = $this->nik . '.' . $this->file_ktp->getClientOriginalExtension();
-        $this->file_ktp->storeAs('file_ktp', $nama_file);
+        $nama_file = date('mYdHis_') . $this->nik . '.' . $this->file_ktp->getClientOriginalExtension();
+        $this->file_ktp->storeAs('public/file_ktp', $nama_file);
         // dd($this->file_ktp);
         Tenant::insert([
             'id' => Str::uuid(),

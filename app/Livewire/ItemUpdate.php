@@ -23,7 +23,7 @@ class ItemUpdate extends Component
 
     public function update()
     {
-        dd($this->item);
+        // dd($this->item);
         Item::whereId($this->id)->update([
             'nama' => $this->nama,
             'keterangan' => $this->keterangan,

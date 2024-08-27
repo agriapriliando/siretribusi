@@ -8,6 +8,7 @@ use App\Livewire\RentalList;
 use App\Livewire\TenantCreate;
 use App\Livewire\TenantList;
 use App\Livewire\TenantListv;
+use App\Livewire\TenantUpdate;
 use App\Livewire\UploadBukti;
 use App\Livewire\UploadSuccess;
 use App\Livewire\UploadVal;
@@ -28,9 +29,9 @@ Route::get('item', ItemList::class);
 Route::get('item/create', ItemCreate::class);
 Route::get('item/{item}', ItemUpdate::class);
 
-Route::get('tenant', TenantList::class);
 Route::get('tenant/list', TenantListv::class);
 Route::get('tenant/create', TenantCreate::class);
+Route::get('tenant/{tenant}', TenantUpdate::class);
 
 Route::get('/', RentalList::class);
 Route::get('rental', RentalList::class);

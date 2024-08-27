@@ -53,10 +53,14 @@
                                 <td><a href="#" class="btn btn-sm btn-success"><i class="icon-whatsapp"></i>
                                         {{ $tenant->nohp }}</a>
                                 </td>
-                                <td class="d-flex d-print-none">
-                                    <a href="{{ url('tenant/' . $tenant->id) }}" wire:navigate class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
-                                    <button type="button" wire:click="hapusTenant('{{ $tenant->id }}')" wire:confirm="Yakin ingin menghapus {{ $tenant->nama }}?" class="btn btn-sm btn-danger"><i
-                                            class="icon-trash"></i></button>
+                                <td class="d-print-none">
+                                    <div class="d-flex ">
+                                        <a href="{{ url('tenant/' . $tenant->id) }}" wire:navigate class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
+                                        <button type="button" wire:click="hapusTenant('{{ $tenant->id }}')" wire:confirm="Yakin ingin menghapus {{ $tenant->nama }}?"
+                                            class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
+                                    </div>
+                                    <div class="badge badge-primary">Created At : {{ \Carbon\Carbon::parse($tenant->created_at)->translatedFormat('j F Y H:i') }} WIB</div>
+
                                 </td>
                             </tr>
                         @endforeach

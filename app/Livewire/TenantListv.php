@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Tenant;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -23,6 +24,7 @@ class TenantListv extends Component
                 session()->flash('message', 'Data Penyewa tidak ditemukan');
             } else {
                 $tenant->delete();
+                Storage::delete('public/file_ktp/' . $tenant->file_ktp);
                 session()->flash('message', 'Data Penyewa <span class="font-weight-bold">' . $tenant->nama . '</span> berhasil dihapus');
             }
         } catch (\Exception $ex) {
@@ -40,6 +42,7 @@ class TenantListv extends Component
                 ->when($this->search_nohp, function ($query) {
                     $query->where('nohp', 'like', "%" . $this->search_nohp . "%");
                 })
+                ->orderBy('nama')
                 ->paginate($this->pagelength)
         ]);
     }
