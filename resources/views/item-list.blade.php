@@ -17,25 +17,8 @@
         </div>
         <div wire:ignore.self class="row">
             <div class="col">
-                <div class="d-flex justify-content-end">
-                    <a href="{{ url('item/create') }}" wire:navigate class="btn btn-success mb-3 mr-2"><i class="icon-plus"></i> Tambah</a>
-                    <input type="text" wire:model.live.debounce.400ms="search" class="form-control mr-2" placeholder="Pencarian" style="max-width: 250px">
-                    <div class="form-group mr-2">
-                        <select wire:model.live="status" class="form-control" id="exampleFormControlSelect1">
-                            <option value="">Semua Status</option>
-                            <option value="Aktif">Aktif</option>
-                            <option value="non aktif">Non Aktif</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select wire:model.live="pagelength" class="form-control" id="exampleFormControlSelect1">
-                            <option value="10">Lihat 10</option>
-                            <option value="20">Lihat 20</option>
-                            <option value="500">Lihat Semua</option>
-                        </select>
-                    </div>
-                </div>
-                <table class="table table-bordered" style="width:100%">
+                <a href="{{ url('item/create') }}" wire:navigate class="btn btn-success mb-2"><i class="icon-plus"></i> Tambah</a>
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -48,7 +31,7 @@
                     <tbody>
                         @forelse ($items as $item)
                             <tr wire:key={{ $item->id }}>
-                                <td scope="row">{{ ($items->currentpage() - 1) * $items->perpage() + $loop->index + 1 }}</td>
+                                <td scope="row">{{ $loop->iteration }}</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->keterangan }}</td>
@@ -79,7 +62,6 @@
                         </tr>
                     </tfoot>
                 </table>
-                {{ $items->links() }}
             </div>
         </div>
     </div>

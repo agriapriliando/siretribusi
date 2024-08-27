@@ -6,7 +6,6 @@ use App\Livewire\ItemUpdate;
 use App\Livewire\RentalCreate;
 use App\Livewire\RentalList;
 use App\Livewire\TenantCreate;
-use App\Livewire\TenantList;
 use App\Livewire\TenantListv;
 use App\Livewire\TenantUpdate;
 use App\Livewire\UploadBukti;
