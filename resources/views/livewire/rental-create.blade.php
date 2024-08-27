@@ -32,16 +32,16 @@
             </div>
             <div class="col-md-6 form-group">
                 <label for="username">Merk Usaha</label>
-                <input type="text" id="merk_usaha" class="form-control form-control">
+                <input type="text" id="merk_usaha" class="form-control ">
                 <small class="yexy-muted">Contoh : Warung Bahagia, Rumah Makan Sejahtera</small>
             </div>
             <div class="col-md-6 form-group">
                 <label for="username">Tanggal Mulai</label>
-                <input type="date" id="username" class="form-control form-control">
+                <input type="date" id="username" class="form-control">
             </div>
             <div class="col-md-6 form-group">
                 <label for="username">Tanggal Berakhir</label>
-                <input type="date" id="username" class="form-control form-control">
+                <input type="date" id="username" class="form-control">
             </div>
             <div class="col-md-6 form-group">
                 <label for="username">Biaya Sewa Bulanan</label>

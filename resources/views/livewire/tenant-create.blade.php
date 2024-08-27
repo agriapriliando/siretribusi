@@ -11,21 +11,21 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label for="username">Nama Lengkap</label>
-                    <input wire:model.live="nama" type="text" id="username" class="form-control form-control-lg">
+                    <input wire:model.live="nama" type="text" name="nama" class="form-control form-control-lg">
                     @error('nama')
                         <div class="alert alert-warning mt-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="username">NIK</label>
-                    <input wire:model.live="nik" type="text" id="username" class="form-control form-control-lg">
+                    <input wire:model.live="nik" type="text" name="nik" class="form-control form-control-lg">
                     @error('nik')
                         <div class="alert alert-warning mt-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="username">No HP</label>
-                    <input wire:model.live="nohp" type="text" id="username" class="form-control form-control-lg" inputmode="numeric">
+                    <input wire:model.live="nohp" type="text" name="nohp" class="form-control form-control-lg" inputmode="numeric">
                     <small class="text-muted">Pastikan No Whatsapp Aktif</small>
                     @error('nohp')
                         <div class="alert alert-warning mt-2">{{ $message }}</div>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="email">Alamat</label>
-                    <textarea wire:model="alamat" type="text" id="email" class="form-control form-control-lg"></textarea>
+                    <textarea wire:model="alamat" type="text" name="alamat" class="form-control form-control-lg"></textarea>
                     @error('alamat')
                         <div class="alert alert-warning mt-2">{{ $message }}</div>
                     @enderror
@@ -52,7 +52,7 @@
                     @enderror
                 </div>
                 <div class="col-md-12 form-group">
-                    <input type="submit" value="Tambah" class="btn btn-success btn-lg px-5">
+                    <input type="submit" value="Tambah" class="btn btn-success btn-lg px-5" {{ $errors->any() ? 'disabled' : '' }}>
                     <input wire:click.prevent="resetForm" type="button" value="Reset" class="btn btn-warning btn-lg px-5">
                     <a href="{{ url('tenant') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>

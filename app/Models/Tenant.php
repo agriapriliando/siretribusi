@@ -12,4 +12,24 @@ class Tenant extends Model
     use HasFactory;
     public $incrementing = false;
     protected $fillable = ['nik', 'nama', 'alamat', 'nohp', 'file_ktp'];
+
+    public function scopeSearch($query, $term)
+    {
+        $term = "%$term%";
+        $query->where(function ($query) use ($term) {
+            $query->where('nik', 'like', $term)
+                ->orWhere('nama', 'like', $term)
+                ->orWhere('alamat', 'like', $term)
+                ->orWhere('nohp', 'like', $term);
+        });
+    }
+
+    public function scopeSearchNamaNik($query, $term)
+    {
+        $term = "%$term%";
+        $query->where(function ($query) use ($term) {
+            $query->where('nik', 'like', $term)
+                ->orWhere('nama', 'like', $term);
+        });
+    }
 }

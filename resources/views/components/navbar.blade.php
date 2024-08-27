@@ -18,7 +18,7 @@
                                 <a href="{{ url('rental') }}" wire:navigate class="nav-link text-left">Transaksi</a>
                             </li>
                             <li>
-                                <a href="{{ url('tenant') }}" wire:navigate class="nav-link text-left">Penyewa</a>
+                                <a href="{{ url('tenant/list') }}" wire:navigate class="nav-link text-left">Penyewa</a>
                             </li>
                             <li>
                                 <a href="{{ url('upload/list') }}" wire:navigate class="nav-link text-left">Validasi</a>
