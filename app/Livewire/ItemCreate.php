@@ -4,10 +4,13 @@ namespace App\Livewire;
 
 use App\Models\Item;
 use Livewire\Component;
+use Livewire\Attributes\Validate;
 
 class ItemCreate extends Component
 {
-    public $nama, $status, $keterangan;
+    public $status, $keterangan;
+    #[Validate('required|unique:items,nama')]
+    public $nama = '';
 
     public function resetform()
     {
@@ -15,8 +18,16 @@ class ItemCreate extends Component
         $this->keterangan = '';
     }
 
+    public function updated($property)
+    {
+        if ($property == 'nama') {
+            $this->keterangan = $this->nama;
+        }
+    }
+
     public function create()
     {
+        $this->validate();
         Item::insert([
             'nama' => $this->nama,
             'keterangan' => $this->keterangan,

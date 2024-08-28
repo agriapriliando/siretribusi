@@ -5,13 +5,15 @@ namespace App\Livewire;
 use App\Models\Item;
 use Livewire\Component;
 use Livewire\Attributes\Locked;
+use Livewire\Attributes\Validate;
 
 class ItemUpdate extends Component
 {
-    public $nama, $keterangan, $status;
+    public $keterangan, $status;
+    public Item $item;
+    public $nama;
     #[Locked]
     public $id;
-    public Item $item;
 
     public function mount(Item $item)
     {
@@ -21,9 +23,22 @@ class ItemUpdate extends Component
         $this->status = $item->status;
     }
 
+    protected function rules()
+    {
+        return [
+            'nama' => 'required|unique:items,nama,' . $this->id,
+        ];
+    }
+
+    public function updated($prop)
+    {
+        $this->validate();
+    }
+
     public function update()
     {
         // dd($this->item);
+        $this->validate();
         Item::whereId($this->id)->update([
             'nama' => $this->nama,
             'keterangan' => $this->keterangan,

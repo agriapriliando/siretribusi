@@ -19,11 +19,15 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label for="username">Nama Item</label>
-                    <input wire:model="nama" type="text" id="nama" class="form-control form-control-lg">
+                    <input wire:model.blur="nama" type="text" id="nama" class="form-control form-control-lg">
+                    @error('nama')
+                        <div class="alert alert-warning">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="email">Status</label>
                     <input type="text" id="status" class="form-control form-control-lg" value="{{ $status }}" disabled>
+                    <small class="text-muted">Status menjadi Aktif secara otomatis, saat Objek Disewakan</small>
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="email">Keterangan</label>

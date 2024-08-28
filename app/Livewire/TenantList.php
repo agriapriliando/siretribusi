@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class TenantListv extends Component
+class TenantList extends Component
 {
     use WithPagination;
 
@@ -34,7 +34,7 @@ class TenantListv extends Component
 
     public function render()
     {
-        return view('livewire.tenant-listv', [
+        return view('livewire.tenant-list', [
             'tenants' => Tenant::search($this->search)
                 ->when($this->search_namanik, function ($query) {
                     $query->searchnamanik($this->search_namanik);
