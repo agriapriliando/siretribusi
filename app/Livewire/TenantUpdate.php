@@ -8,6 +8,7 @@ use Livewire\Component;
 use Livewire\Attributes\Locked;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
+use Illuminate\Validation\Rule;
 
 class TenantUpdate extends Component
 {
@@ -16,17 +17,51 @@ class TenantUpdate extends Component
     public Tenant $tenant;
     #[Locked]
     public $id;
-    #[Validate('required|min:16|max:16|unique:tenants,nik')]
+    // #[Validate('required')]
+    // #[Validate('numeric')]
+    // #[Validate('digits:16', message: 'NIK Harus 16 Digit')]
     public $nik = '';
-    #[Validate('required')]
+    // #[Validate('required')]
     public $nama = '';
-    #[Validate('required|min:5')]
+    // #[Validate('required|min:5')]
     public $alamat = '';
-    #[Validate('required|min:9|numeric')]
+    // #[Validate('required|min:9|numeric')]
     public $nohp = '';
-    #[Validate('required|mimes:jpeg,jpg,png|max:512')] // 512Kb Max
-    public $file_ktp = '';
+    // #[Validate('nullable|mimes:jpeg,jpg,png|max:512')] // 512Kb Max
+    public $file_ktp;
     public $old_file_ktp;
+
+    public function updated()
+    {
+        $this->validate();
+    }
+
+    public function rules()
+    {
+        return [
+            'nama' => ['required', Rule::unique('tenants')->ignore($this->id)],
+            'nohp' => ['required', 'numeric', Rule::unique('tenants')->ignore($this->id)],
+            'nik' => ['required', 'digits:16', 'numeric', Rule::unique('tenants')->ignore($this->id)],
+            'alamat' => 'required',
+            'file_ktp' => 'nullable|mimes:jpeg,jpg,png|max:1024'
+        ];
+    }
+
+
+    public function messages()
+    {
+        return [
+            'nik.unique' => 'NIK Sudah Digunakan.',
+            'nik.digits' => 'Harus 16 Angka',
+            'nama.unique' => 'Nama Sudah Digunakan.',
+            'nohp.unique' => 'No HP Sudah Digunakan',
+        ];
+    }
+
+    // public function updated()
+    // {
+    //     $this->validate();
+    // }
 
     public function mount(Tenant $tenant)
     {
@@ -38,14 +73,9 @@ class TenantUpdate extends Component
         $this->old_file_ktp = $tenant->file_ktp;
     }
 
-    public function download()
-    {
-        return response()->download(storage_path('app/file_ktp/' . $this->file_ktp));
-        // return Storage::disk('local')->download(storage_path('file_ktp/' . $this->file_ktp));
-    }
-
     public function update()
     {
+        $this->validate();
         if ($this->file_ktp) {
             Storage::delete('public/file_ktp/' . $this->old_file_ktp);
             $nama_file = date('mYdHis_') . $this->nik . '.' . $this->file_ktp->getClientOriginalExtension();

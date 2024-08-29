@@ -49,21 +49,22 @@ class RentalCreate extends Component
 
     public function create()
     {
+        $this->validate();
+
         $this->tgl_mulai = Carbon::createFromFormat('Y-m-d', $this->tgl_mulai)->toDateString();
         $this->tgl_selesai = Carbon::createFromFormat('Y-m-d', $this->tgl_selesai)->toDateString();
 
-        $start = new DateTime($this->tgl_mulai);
-        $end = new DateTime($this->tgl_selesai);
-        $diff = $start->diff($end);
+        // $start = new DateTime($this->tgl_mulai);
+        // $end = new DateTime($this->tgl_selesai);
+        // $diff = $start->diff($end);
 
-        $yearsInMonths = $diff->format('%r%y') * 12;
-        $months = $diff->format('%r%m');
-        $totalMonths = $yearsInMonths + $months;
-        dd($totalMonths);
+        // $yearsInMonths = $diff->format('%r%y') * 12;
+        // $months = $diff->format('%r%m');
+        // $totalMonths = $yearsInMonths + $months;
+        // dd($totalMonths);
         // dd($this->user_id);
         // dd($this->sector_id);
         // dd(Carbon::createFromFormat('Y-m-d', $this->tgl_mulai)->toDateString());
-        $this->validate();
         $datarental = [
             'user_id' => $this->user_id,
             'sector_id' => $this->sector_id,
@@ -77,13 +78,16 @@ class RentalCreate extends Component
             'status_rental' => $this->status_rental,
             'keterangan' => $this->keterangan,
         ];
-        dd($datarental);
-        // DB::transaction(function () use ($datarental) {
-        //     Rental::create([$datarental]);
-        // });
+        // dd($datarental);
+        DB::transaction(function () use ($datarental) {
+            Rental::create($datarental);
+            Item::whereId($datarental['item_id'])->update([
+                'status' => 'Aktif'
+            ]);
+        });
 
         session()->flash('message', 'Data Penyewaan Berhasil Ditambahkan');
-        $this->reset();
+        return $this->redirect('/rental/list', navigate: true);
     }
 
     public function render()

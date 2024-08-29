@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('merk_usaha');
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
-            $table->decimal('nominal', total: 8, places: 2);
+            $table->decimal('nominal', total: 14, places: 2);
             $table->enum('jenis_bayar', ['tahunan', 'bulanan']);
             $table->string('status_rental'); // aktif, selesai, batal, dsb
             $table->text('keterangan')->nullable();

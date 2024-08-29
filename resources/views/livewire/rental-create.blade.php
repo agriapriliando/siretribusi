@@ -11,7 +11,7 @@
             <div class="row">
                 <div wire:ignore class="col-md-6 form-group">
                     <label>Pilih Wajib Retribusi</label>
-                    <select wire:model="tenant_id" class="form-select w-100" id="penyewa" name="tenant_id" data-placeholder="Cari Nama/ No Hp" required>
+                    <select wire:model.live="tenant_id" class="form-select w-100" id="penyewa" name="tenant_id" data-placeholder="Cari Nama/ No Hp" required>
                         <option>Pilih Penyewa</option>
                         @foreach ($tenants as $t)
                             <option value="{{ $t->id }}">{{ $t->nama }} - {{ $t->nohp }}</option>
@@ -23,7 +23,7 @@
                 </div>
                 <div wire:ignore class="col-md-6 form-group">
                     <label>Pilih Objek Sewa</label>
-                    <select wire:model="item_id" class="form-select w-100" id="objeksewa" name="item_id" data-placeholder="Cari Lokasi">
+                    <select wire:model="item_id" class="form-select w-100" id="objeksewa" name="item_id" data-placeholder="Cari Lokasi" required>
                         <option>Pilih Objek Sewa</option>
                         @foreach ($items as $i)
                             <option value="{{ $i->id }}" {{ $i->status == 'Aktif' ? 'disabled' : '' }}>{{ $i->nama }} {{ $i->status == 'Aktif' ? ' - Aktif' : '' }}</option>
@@ -32,7 +32,7 @@
                 </div>
                 <div wire:ignore class="col-md-6 form-group">
                     <label>Bidang</label>
-                    <select wire:model="sector_id" class="form-select w-100" id="sector" name="sector_id" data-placeholder="Pilih Bidang">
+                    <select wire:model="sector_id" class="form-select w-100" id="sector" name="sector_id" data-placeholder="Pilih Bidang" required>
                         <option>Pilih Bidang Usaha</option>
                         @foreach ($sectors as $s)
                             <option value="{{ $s->id }}">{{ $s->nama }}</option>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Merk Usaha</label>
-                    <input wire:model="merk_usaha" type="text" id="merk_usaha" class="form-control ">
+                    <input wire:model.live="merk_usaha" type="text" id="merk_usaha" class="form-control ">
                     <small class="text-muted">Contoh : Warung Bahagia, Rumah Makan Sejahtera</small>
                 </div>
                 <div class="col-md-6 form-group">
@@ -62,7 +62,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Rp</span>
                         </div>
-                        <input x-mask="9999999" wire:model.live.debounce="nominal" type="text" inputmode="numeric" class="form-control" placeholder="Contoh : 350000">
+                        <input x-mask="9999999" wire:model.live="nominal" type="text" inputmode="numeric" class="form-control">
                     </div>
                     @error('nominal')
                         <div class="alert alert-warning">{{ $message }}</div>

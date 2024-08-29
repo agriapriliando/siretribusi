@@ -20,7 +20,7 @@ class ItemSeeder extends Seeder
                 [
                     'nama' => 'Kontainer ' . $i++,
                     'keterangan' => 'Kontainer Di Jalan Yos Sudarso',
-                    'status' => $arr[array_rand($arr)],
+                    'status' => 'Non Aktif',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
                 ],

@@ -29,6 +29,8 @@
     <link href="{{ asset('assets') }}/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -77,13 +79,7 @@
     <script src="{{ asset('assets') }}/js/jquery.mb.YTPlayer.min.js"></script>
 
     <script src="{{ asset('assets') }}/js/main.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('[data-toggle="popover"]').popover({
-                trigger: 'focus'
-            })
-        });
-    </script>
+    @stack('scripts')
 </body>
 
 </html>

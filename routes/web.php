@@ -9,8 +9,8 @@ use App\Livewire\TenantCreate;
 use App\Livewire\TenantList;
 use App\Livewire\TenantUpdate;
 use App\Livewire\UploadBukti;
+use App\Livewire\UploadList;
 use App\Livewire\UploadSuccess;
-use App\Livewire\UploadVal;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,17 +24,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('item', ItemList::class);
+Route::get('item/list', ItemList::class);
 Route::get('item/create', ItemCreate::class);
 Route::get('item/{item}', ItemUpdate::class);
 
+Route::get('/', TenantList::class);
 Route::get('tenant/list', TenantList::class);
 Route::get('tenant/create', TenantCreate::class);
 Route::get('tenant/{tenant}', TenantUpdate::class);
 
-Route::get('/', RentalList::class);
-Route::get('rental', RentalList::class);
+Route::get('rental/list', RentalList::class);
+// Route::get('rental', RentalList::class);
 Route::get('rental/create', RentalCreate::class);
-Route::get('upload', UploadBukti::class);
-Route::get('upload/list', UploadVal::class);
+
+
+Route::get('upload/{id}/{user_id}', UploadBukti::class);
+// 02876008-91c4-4ebb-9e7b-9f0de2deb4e9/1
 Route::get('upload/success', UploadSuccess::class);
+Route::get('upload/list', UploadList::class);

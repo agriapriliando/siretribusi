@@ -12,8 +12,12 @@ class TenantCreate extends Component
 {
     use WithFileUploads;
     public Tenant $tenant;
-    #[Validate('required|min:16|max:16|unique:tenants,nik')]
+    #[Validate('unique:tenants,nik', message: 'NIK Sudah Digunakan')]
+    #[Validate('required')]
+    #[Validate('numeric')]
+    #[Validate('digits:16', message: 'NIK Harus 16 Digit')]
     public $nik = '';
+    #[Validate('unique:tenants,nama', message: 'Nama Sudah Digunakan')]
     #[Validate('required')]
     public $nama = '';
     #[Validate('required|min:5')]
@@ -35,11 +39,8 @@ class TenantCreate extends Component
     public function create()
     {
         $this->validate();
-        // $this->file_ktp->store(path: 'file_ktp');
-        // dd($this->file_ktp->getClientOriginalExtension());
         $nama_file = date('mYdHis_') . $this->nik . '.' . $this->file_ktp->getClientOriginalExtension();
         $this->file_ktp->storeAs('public/file_ktp', $nama_file);
-        // dd($this->file_ktp);
         Tenant::insert([
             'id' => Str::uuid(),
             'nik' => $this->nik,

@@ -1,8 +1,12 @@
 <div class="container my-4 mb-5">
     <div class="row justify-content-center text-center">
-        <div class="col-lg-6 mb-5">
+        <div class="col-lg-6 mb-1">
             <h2 data-aos="fade-up" class="section-title-underline">
-                <span>Unggah Bukti Pembayaran Berhasil</span>
+                @if (session('message'))
+                    <span>{!! session('message') !!}</span>
+                @else
+                    <span>Unggah Bukti Pembayaran Berhasil</span>
+                @endif
             </h2>
         </div>
     </div>

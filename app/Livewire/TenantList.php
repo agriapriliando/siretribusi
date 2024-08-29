@@ -16,6 +16,11 @@ class TenantList extends Component
     public $search_nohp = "";
     public $pagelength = 10;
 
+    public function resetSearch()
+    {
+        $this->reset('search');
+    }
+
     public function hapusTenant($id)
     {
         try {

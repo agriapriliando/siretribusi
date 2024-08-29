@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="email">Alamat</label>
-                    <textarea wire:model="alamat" type="text" name="alamat" class="form-control"></textarea>
+                    <textarea wire:model.live="alamat" type="text" name="alamat" class="form-control"></textarea>
                     @error('alamat')
                         <div class="alert alert-warning mt-2">{{ $message }}</div>
                     @enderror
@@ -43,6 +43,7 @@
                         <img @click="$refs.inputname.click()" style="max-width: 250px" class="img-fluid mb-2" src="{{ $file_ktp->temporaryUrl() }}" alt="Logo Preview">
                     @else
                         <img @click="$refs.inputname.click()" style="max-width: 250px" class="img-fluid mb-2" src="{{ asset('storage/file_ktp/' . $old_file_ktp) }}" alt="Logo Preview">
+                        <a href="{{ asset('storage/file_ktp/' . $old_file_ktp) }}" target="_blank" class="btn btn-success btn-sm">Lihat</a>
                     @endif
                     <div wire:loading wire:target="file_ktp">
                         <div class="alert alert-warning">Generate Preview</div>

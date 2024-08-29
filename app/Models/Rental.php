@@ -11,18 +11,33 @@ class Rental extends Model
 
     protected $fillable = ['user_id', 'sector_id', 'tenant_id', 'item_id', 'merk_usaha', 'tgl_mulai', 'tgl_selesai', 'nominal', 'jenis_bayar', 'status_rental', 'keterangan'];
 
-    public function sectors()
+    public function sector()
     {
-        return $this->hasMany(Sector::class);
+        return $this->belongsTo(Sector::class);
     }
 
-    public function items()
+    public function item()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsTo(Item::class);
     }
 
-    public function tenants()
+    public function tenant()
     {
-        return $this->hasMany(Tenant::class);
+        return $this->belongsTo(Tenant::class);
+    }
+
+    public function scopeSearch($query, $term)
+    {
+        $term = "%$term%";
+        $query->where(function ($query) use ($term) {
+            $query->where('merk_usaha', 'like', $term)
+                ->orWhere('nominal', 'like', $term);
+        })->orWhereHas('tenant', function ($query) use ($term) {
+            $query->where('nama', 'like', $term);
+        })->orWhereHas('item', function ($query) use ($term) {
+            $query->where('nama', 'like', $term);
+        })->orWhereHas('sector', function ($query) use ($term) {
+            $query->where('nama', 'like', $term);
+        });
     }
 }
