@@ -60,7 +60,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
+                                            <a href="{{ url('rental/' . $r->id) }}" class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
                                             <form action="">
                                                 <button type="submit" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
                                             </form>
