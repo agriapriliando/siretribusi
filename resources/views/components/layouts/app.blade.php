@@ -30,8 +30,6 @@
 
     <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
 
-    <link rel="stylesheet" href="{{ asset('assets') }}/js/select2/select2.min.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/js/select2/select2-bootstrap4.min.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -127,7 +125,6 @@
     <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.colVis.min.js"></script>
-    <script src="{{ asset('assets') }}/js/select2/select2.min.js"></script>
     <script>
         new DataTable('#example', {
             // responsive: true,
@@ -144,28 +141,7 @@
             ]
         });
     </script>
-    <script>
-        $(document).ready(function() {
-            $('#penyewa').select2({
-                theme: "bootstrap4",
-                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                placeholder: $(this).data('placeholder'),
-            });
-            $('#objeksewa').select2({
-                theme: "bootstrap4",
-                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                placeholder: $(this).data('placeholder'),
-            });
-            $('#bidang').select2({
-                theme: "bootstrap4",
-                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                placeholder: $(this).data('placeholder'),
-            });
-            $('[data-toggle="popover"]').popover({
-                trigger: 'focus'
-            })
-        });
-    </script>
+    @stack('scripts')
 </body>
 
 </html>
