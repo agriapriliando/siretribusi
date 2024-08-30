@@ -14,6 +14,7 @@ use App\Livewire\UploadBukti;
 use App\Livewire\UploadList;
 use App\Livewire\UploadSuccess;
 use App\Livewire\UserList;
+use App\Livewire\UserUpdate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,7 @@ Route::get('logout', function () {
 });
 
 Route::get('user/list', UserList::class);
+Route::get('user/{user}', UserUpdate::class);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('item/list', ItemList::class);

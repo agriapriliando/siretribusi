@@ -36,7 +36,7 @@
                 <div class="col-md-12 form-group">
                     <input type="submit" value="Tambah" class="btn btn-success btn-lg px-5">
                     <input wire:click.prevent="resetform" type="button" value="Reset" class="btn btn-warning btn-lg px-5">
-                    <a href="{{ url('item') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
+                    <a href="{{ url('item/list') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>
             </div>
         </form>

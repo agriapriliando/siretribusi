@@ -22,7 +22,7 @@ class Login extends Component
         ];
         if (Auth::attempt($credentials)) {
             session()->regenerate();
-            session()->flash('message', 'Anda Berhasil login, Selamat Datang');
+            session()->flash('message', 'Anda Berhasil login, Selamat Datang ' . Auth::user()->name);
             $this->redirect('/');
         } else {
             session()->flash('message', 'Username atau Password Salah!!!');
