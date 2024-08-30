@@ -13,6 +13,7 @@ use App\Livewire\TenantUpdate;
 use App\Livewire\UploadBukti;
 use App\Livewire\UploadList;
 use App\Livewire\UploadSuccess;
+use App\Livewire\UserCreate;
 use App\Livewire\UserList;
 use App\Livewire\UserUpdate;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +41,7 @@ Route::get('logout', function () {
 });
 
 Route::get('user/list', UserList::class);
+Route::get('user/create', UserCreate::class);
 Route::get('user/{user}', UserUpdate::class);
 
 Route::middleware(['auth'])->group(function () {

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class UserUpdate extends Component
@@ -13,6 +14,29 @@ class UserUpdate extends Component
     public $email;
     public $password;
 
+    public function updated()
+    {
+        $this->validate();
+    }
+
+    public function rules()
+    {
+        return [
+            'name' => ['required', Rule::unique('users')->ignore($this->user->id)],
+            'username' => ['required', Rule::unique('users')->ignore($this->user->id)],
+            'email' => ['required', Rule::unique('users')->ignore($this->user->id)],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.unique' => 'Nama Sudah Digunakan.',
+            'username.unique' => 'Username Sudah Digunakan.',
+            'email.unique' => 'Email Sudah Digunakan',
+        ];
+    }
+
     public function mount(User $user)
     {
         $this->name = $user->name;
@@ -22,6 +46,7 @@ class UserUpdate extends Component
 
     public function update()
     {
+        $this->validate();
         $dataUser = [
             'name' => $this->name,
             'username' => $this->username,

@@ -44,15 +44,6 @@ class RentalUpdate extends Component
         ];
     }
 
-    // public function messages()
-    // {
-    //     return [
-    //         'merk_usaha.unique' => 'NIK Sudah Digunakan.',
-    //         'sector_id.unique' => 'Nama Sudah Digunakan.',
-    //         'nohp.unique' => 'No HP Sudah Digunakan',
-    //     ];
-    // }
-
     public function mount(Rental $rental)
     {
         $this->tenants = Tenant::all();
