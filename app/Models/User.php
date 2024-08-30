@@ -47,4 +47,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Proofpayment::class);
     }
+
+    public function scopeSearch($query, $term)
+    {
+        $term = "%$term%";
+        $query->where(function ($query) use ($term) {
+            $query->where('username', 'like', $term)
+                ->orWhere('name', 'like', $term)
+                ->orWhere('email', 'like', $term);
+        });
+    }
 }

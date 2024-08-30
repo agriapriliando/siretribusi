@@ -13,7 +13,7 @@
                     serta industri
                     untuk mendukung pertumbuhan ekonomi lokal dan kesejahteraan masyarakat</p>
             </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="200" data-aos-offset="0" class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="200" data-aos-offset="0" class="col-lg-3 d-none">
                 <h3 style="font-size: 23px" class="footer-heading"><span>Pintasan</span></h3>
                 <ul style="font-size: 19px" class="list-unstyled">
                     <li><a href="#">Transaksi</a></li>
@@ -23,7 +23,7 @@
                     <li><a href="#">Logout</a></li>
                 </ul>
             </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0" class="col-lg-3">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0" class="col-lg-3 d-none">
                 <h3 style="font-size: 23px" class="footer-heading"><span>Laporan</span></h3>
                 <ul style="font-size: 19px" class="list-unstyled">
                     <li><a href="#">Daftar Penyewa</a></li>

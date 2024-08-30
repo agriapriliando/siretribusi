@@ -22,10 +22,11 @@
                                 <ul class="dropdown">
                                     <li class="{{ request()->is('tenant*') ? 'active' : '' }}"><a href="{{ url('tenant/list') }}" wire:navigate>Penyewa</a></li>
                                     <li class="{{ request()->is('item*') ? 'active' : '' }}"><a href="{{ url('item/list') }}" wire:navigate>Objek Sewa</a></li>
+                                    <li class="{{ request()->is('user*') ? 'active' : '' }}"><a href="{{ url('user/list') }}" wire:navigate>Pengguna</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="nav-link text-left text-underline text-white badge badge-danger p-2 px-3 mx-3">Logout</a>
+                                <a href="{{ url('logout') }}" class="nav-link text-left text-underline text-white badge badge-danger p-2 px-3 mx-3">Logout</a>
                             </li>
                         </ul>
                         </ul>

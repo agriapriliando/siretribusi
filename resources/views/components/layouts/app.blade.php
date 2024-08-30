@@ -46,16 +46,11 @@
         </div>
 
         <x-topbar></x-topbar>
-        <x-navbar></x-navbar>
+        @if (request()->is('login*'))
+        @else
+            <x-navbar></x-navbar>
+        @endif
         <style>
-            .dt-search {
-                padding: 20px 0 !important;
-            }
-
-            .dt-paging {
-                padding-top: 20px;
-            }
-
             .bg-img {
                 background-image: url("{{ asset('') }}assets/images/bg_1.jpg")
             }
@@ -67,12 +62,12 @@
                 box-shadow: 0 0 3px #017e03;
             }
         </style>
-        <div class="mt-5">
+        <div class="{{ request()->is('login*') ? '' : 'mt-5' }}">
             {{-- content --}}
             {{ $slot }}
             {{-- end content --}}
 
-            <div class="site-section ftco-subscribe-1 bg-img">
+            <div class="site-section ftco-subscribe-1 bg-img {{ request()->is('login*') ? 'd-none' : '' }}">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col text-center">
