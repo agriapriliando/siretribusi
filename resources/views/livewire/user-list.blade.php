@@ -56,8 +56,8 @@
                                         <td>{{ $u->email }}</td>
                                         <td class="d-flex">
                                             <a href="{{ url('user/' . $u->id) }}" wire:navigate class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
-                                            <button {{ $u->status == 'Aktif' ? 'disabled' : '' }} type="button" wire:click="hapus({{ $u->id }})"
-                                                wire:confirm="Yakin ingin menghapus {{ $u->nama }}?" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
+                                            <button {{ $u->status == 'Aktif' ? 'disabled' : '' }} type="button" wire:click="delete({{ $u->id }})"
+                                                wire:confirm="Yakin ingin menghapus Pengguna : {{ $u->name }}?" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
                                         </td>
                                     </tr>
                                 @empty

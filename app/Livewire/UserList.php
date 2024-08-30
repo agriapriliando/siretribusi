@@ -15,6 +15,17 @@ class UserList extends Component
         $this->reset('search');
     }
 
+    public function delete($id)
+    {
+        try {
+            $user = User::whereId($id)->first();
+            $user->delete();
+            session()->flash('message', 'Akun ' . $user->name . ' Berhasil Dihapus');
+        } catch (\Exception $e) {
+            session()->flash($e->getMessage());
+        }
+    }
+
     public function render()
     {
         return view('livewire.user-list', [
