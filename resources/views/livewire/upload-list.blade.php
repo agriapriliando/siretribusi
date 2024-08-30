@@ -39,6 +39,7 @@
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <a class="btn btn-success" href="{{ asset('storage/file_bukti/' . $bukti->file_bukti) }}" download>Unduh Bukti</a>
+                        <a target="_blank" class="btn btn-success" href="{{ asset('storage/file_bukti/' . $bukti->file_bukti) }}">Open New Tab</a>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
 
@@ -95,13 +96,13 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Penyewa</th>
                                     <th>Kode</th>
-                                    <th>Tanggal</th>
+                                    <th class="d-none d-md-block">Tanggal</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -109,8 +110,11 @@
                                 @foreach ($uploads as $item)
                                     <tr wire:key={{ $item->id }} style="background-color: {{ $item->confirmed == 1 ? '#beffc8' : '#ffbebe' }};">
                                         <td>{{ ($uploads->currentpage() - 1) * $uploads->perpage() + $loop->index + 1 }}</td>
-                                        <td>
+                                        <td style="max-width: 350px">
                                             {{ $item->nama }} <a href="#"><i style="color: #009c17;" class="icon-whatsapp"></i></a>
+                                            <div style="font-style: italic">
+                                                {{ $item->ket_by_tenant }}
+                                            </div>
                                         </td>
                                         <td>
                                             <span class="font-weight-bold">{{ $item->kode }}</span>
@@ -119,10 +123,14 @@
                                             </button>
                                             <span wire:confirm="Yakin Merubah Status Valid?" wire:click="ubah_status({{ $item->id }})"
                                                 class="btn btn-sm {{ $item->confirmed == 1 ? 'btn-success' : 'btn-danger' }}">{{ $item->confirmed == 1 ? 'Valid' : 'Belum Valid' }}</span>
+                                            <div class="d-md-none">
+                                                <span class="badge pill-badge badge-warning">Submit {{ $item->created_at->format('d/m/Y H:i') }} Wib</span><br>
+                                                <span class="badge pill-badge badge-warning">Updated {{ $item->updated_at->format('d/m/Y H:i') }} Wib</span>
+                                            </div>
                                         </td>
-                                        <td>
-                                            <span class="badge pill-badge badge-warning">Submit {{ $item->created_at->format('d, M Y H:i') }} Wib</span><br>
-                                            <span class="badge pill-badge badge-warning">Updated {{ $item->updated_at->format('d, M Y H:i') }} Wib</span>
+                                        <td class="d-none d-md-block">
+                                            Submit {{ $item->created_at->format('d, M Y H:i') }} Wib<br>
+                                            Updated {{ $item->updated_at->format('d, M Y H:i') }} Wib
                                         </td>
                                         <td>
                                             <div class="d-flex">
@@ -138,7 +146,7 @@
                                     <th>No</th>
                                     <th>Nama Penyewa</th>
                                     <th>Kode</th>
-                                    <th>Tanggal</th>
+                                    <th class="d-none d-md-block">Tanggal</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>

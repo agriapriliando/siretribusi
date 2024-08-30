@@ -68,7 +68,7 @@ class UploadList extends Component
                 ->when($this->search_confirmed, function ($query) {
                     $query->where('confirmed', $this->search_confirmed);
                 })
-                ->orderBy('confirmed')
+                ->orderBy('confirmed')->orderBy('created_at', 'DESC')
                 ->paginate($this->pagelength)
         ]);
     }
