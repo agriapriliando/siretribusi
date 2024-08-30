@@ -11,6 +11,7 @@ use DateTime;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\Title;
 
 class RentalCreate extends Component
 {
@@ -33,6 +34,8 @@ class RentalCreate extends Component
     public $status_rental = 'Aktif';
     public $keterangan;
     public $tenants;
+
+    #[Title('Tambah Sewa')]
 
     public function mount()
     {

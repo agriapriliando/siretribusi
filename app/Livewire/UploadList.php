@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\Title;
 
 class UploadList extends Component
 {
@@ -17,6 +18,8 @@ class UploadList extends Component
     public $confirmed;
     public $search_confirmed;
     public $bukti;
+
+    #[Title('List Bukti Bayar')]
 
     public function resetSearch()
     {

@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Item;
 use Livewire\Component;
 use Livewire\Attributes\Locked;
+use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 
 class ItemUpdate extends Component
@@ -14,6 +15,8 @@ class ItemUpdate extends Component
     public $nama;
     #[Locked]
     public $id;
+
+    #[Title('Update Objek Sewa')]
 
     public function mount(Item $item)
     {

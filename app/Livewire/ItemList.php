@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Item;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,6 +15,8 @@ class ItemList extends Component
     public $search = "";
     public $pagelength = 10;
     public $status;
+
+    #[Title('List Objek Sewa')]
 
     public function hapusItem($id)
     {

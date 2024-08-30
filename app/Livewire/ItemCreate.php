@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Item;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 
@@ -11,6 +12,8 @@ class ItemCreate extends Component
     public $status, $keterangan;
     #[Validate('required|unique:items,nama')]
     public $nama = '';
+
+    #[Title('Tambah Objek Sewa')]
 
     public function resetform()
     {

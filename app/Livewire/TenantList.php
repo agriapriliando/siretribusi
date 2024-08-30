@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Tenant;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,6 +16,8 @@ class TenantList extends Component
     public $search_namanik = "";
     public $search_nohp = "";
     public $pagelength = 10;
+
+    #[Title('List Penyewa')]
 
     public function resetSearch()
     {

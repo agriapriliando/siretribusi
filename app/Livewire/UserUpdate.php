@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class UserUpdate extends Component
@@ -13,6 +14,8 @@ class UserUpdate extends Component
     public $username;
     public $email;
     public $password;
+
+    #[Title('Update User')]
 
     public function updated()
     {

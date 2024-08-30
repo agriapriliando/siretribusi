@@ -6,6 +6,7 @@ use App\Models\Proofpayment;
 use App\Models\Tenant;
 use Carbon\Carbon;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
@@ -30,6 +31,8 @@ class UploadBukti extends Component
     public $confirmed;
     public $tenant;
 
+    #[Title('Unggah Bukti Bayar')]
+
     public function mount($id, $user_id)
     {
         $this->kode = $id;
@@ -37,6 +40,7 @@ class UploadBukti extends Component
         $this->tenant = Tenant::whereId($id)->first();
         // dd($this->tenant->nama);
     }
+
     public function create()
     {
         $this->validate();

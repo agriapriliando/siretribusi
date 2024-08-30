@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Tenant;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Title;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 
@@ -26,6 +27,8 @@ class TenantCreate extends Component
     public $nohp = '';
     #[Validate('required|mimes:jpeg,jpg,png|max:512')] // 512Kb Max
     public $file_ktp;
+
+    #[Title('Tambah Penyewa')]
 
     public function resetForm()
     {

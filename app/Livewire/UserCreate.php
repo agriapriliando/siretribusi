@@ -4,12 +4,15 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class UserCreate extends Component
 {
     public User $user;
     public $name, $username, $email, $password;
+
+    #[Title('Tambah User')]
 
     public function updated()
     {

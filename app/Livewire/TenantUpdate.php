@@ -9,6 +9,7 @@ use Livewire\Attributes\Locked;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Title;
 
 class TenantUpdate extends Component
 {
@@ -30,6 +31,8 @@ class TenantUpdate extends Component
     // #[Validate('nullable|mimes:jpeg,jpg,png|max:512')] // 512Kb Max
     public $file_ktp;
     public $old_file_ktp;
+
+    #[Title('Update Penyewa')]
 
     public function updated()
     {

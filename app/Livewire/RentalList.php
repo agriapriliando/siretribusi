@@ -4,12 +4,15 @@ namespace App\Livewire;
 
 use App\Models\Item;
 use App\Models\Rental;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class RentalList extends Component
 {
     public $search = '';
     public $pagelength;
+
+    #[Title('List Sewa')]
 
     public function delete($id)
     {

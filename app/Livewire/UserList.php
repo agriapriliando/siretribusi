@@ -3,12 +3,15 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class UserList extends Component
 {
     public $search = '';
     public $pagelength;
+
+    #[Title('List User')]
 
     public function resetSearch()
     {

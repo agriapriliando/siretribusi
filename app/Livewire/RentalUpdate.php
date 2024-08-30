@@ -9,6 +9,7 @@ use App\Models\Tenant;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Locked;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class RentalUpdate extends Component
@@ -19,6 +20,8 @@ class RentalUpdate extends Component
     public $user_id = 1, $sector_id, $item_id, $tenant_id, $merk_usaha;
     public $tgl_mulai, $tgl_selesai, $nominal, $jenis_bayar = 'Tahunan', $status_rental, $keterangan;
     public $tenants, $items, $sectors;
+
+    #[Title('Update Sewa')]
 
     public function updated($property)
     {
