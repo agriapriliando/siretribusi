@@ -85,7 +85,7 @@ class RentalUpdate extends Component
             'tenant_id' => $this->tenant_id,
             'merk_usaha' => $this->merk_usaha,
             'tgl_mulai' =>  $this->tgl_mulai,
-            'tgl_selesai' =>  $this->tgl_mulai,
+            'tgl_selesai' =>  $this->tgl_selesai,
             'nominal' => $this->nominal,
             'jenis_bayar' => $this->jenis_bayar,
             'status_rental' => $this->status_rental,
@@ -94,11 +94,11 @@ class RentalUpdate extends Component
         // dd($datarental);
         DB::transaction(function () use ($datarental, $old_item_id) {
             Rental::whereId($datarental['id'])->update($datarental);
-            Item::whereId($datarental['item_id'])->update([
-                'status' => 'Aktif'
-            ]);
             Item::whereId($old_item_id)->update([
                 'status' => 'Non Aktif'
+            ]);
+            Item::whereId($datarental['item_id'])->update([
+                'status' => 'Aktif'
             ]);
         });
 

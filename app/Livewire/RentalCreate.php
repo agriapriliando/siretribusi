@@ -42,7 +42,9 @@ class RentalCreate extends Component
     public function updated($property)
     {
         if ($property == 'tgl_mulai') {
-            $this->tgl_selesai = Carbon::createFromFormat('Y-m-d', $this->tgl_mulai)->addYear()->toDateString();
+            if ($this->tgl_mulai) {
+                $this->tgl_selesai = Carbon::createFromFormat('Y-m-d', $this->tgl_mulai)->addYear()->toDateString();
+            }
             // $this->tgl_selesai = $this->tgl_mulai;
         }
     }

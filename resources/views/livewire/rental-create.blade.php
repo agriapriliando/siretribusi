@@ -47,6 +47,9 @@
                 <div class="col-md-6 form-group">
                     <label>Tanggal Mulai</label>
                     <input wire:model.live="tgl_mulai" type="date" class="form-control">
+                    @error('tgl_mulai')
+                        <div class="alert alert-warning">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div x-data="{ accept: false }" class="col-md-6 form-group">
                     <label>Tanggal Berakhir</label>
@@ -54,6 +57,9 @@
                         <input type="checkbox" x-model="accept"> Ganti Tanggal Berakhir
                     </div>
                     <input wire:model="tgl_selesai" type="date" class="form-control" x-bind:disabled="!accept">
+                    @error('tgl_selesai')
+                        <div class="alert alert-warning">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Biaya Sewa Bulanan</label>

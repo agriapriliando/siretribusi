@@ -61,9 +61,8 @@
                                     <td>
                                         <div class="d-flex">
                                             <a href="{{ url('rental/' . $r->id) }}" class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
-                                            <form action="">
-                                                <button type="submit" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
-                                            </form>
+                                            <button wire:click.prevent="delete({{ $r->id }})" wire:confirm="Yakin ingin menghapus data Penyewaan? Data yang terhapus tidak bisa dipulihkan."
+                                                type="submit" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>

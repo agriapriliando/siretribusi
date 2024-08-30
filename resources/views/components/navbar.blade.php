@@ -11,24 +11,21 @@
                 <div class="mr-auto">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li class="active">
-                                <a href="#" class="nav-link text-left">Home</a>
-                            </li>
-                            <li>
+                            <li class="{{ request()->is('rental*') ? 'active' : '' }}">
                                 <a href="{{ url('rental/list') }}" wire:navigate class="nav-link text-left">Penyewaan</a>
                             </li>
-                            <li>
+                            <li class="{{ request()->is('upload*') ? 'active' : '' }}">
                                 <a href="{{ url('upload/list') }}" wire:navigate class="nav-link text-left">Validasi</a>
                             </li>
                             <li class="has-children">
                                 <a href="#" class="nav-link text-left">Data</a>
                                 <ul class="dropdown">
-                                    <li><a href="{{ url('tenant/list') }}" wire:navigate>Penyewa</a></li>
-                                    <li><a href="{{ url('item/list') }}" wire:navigate>Objek Sewa</a></li>
+                                    <li class="{{ request()->is('tenant*') ? 'active' : '' }}"><a href="{{ url('tenant/list') }}" wire:navigate>Penyewa</a></li>
+                                    <li class="{{ request()->is('item*') ? 'active' : '' }}"><a href="{{ url('item/list') }}" wire:navigate>Objek Sewa</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="nav-link text-left text-underline text-white  badge badge-danger p-2 px-3 mx-3">Logout</a>
+                                <a href="#" class="nav-link text-left text-underline text-white badge badge-danger p-2 px-3 mx-3">Logout</a>
                             </li>
                         </ul>
                         </ul>

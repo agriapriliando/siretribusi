@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Item;
 use App\Models\Rental;
 use Livewire\Component;
 
@@ -9,6 +10,24 @@ class RentalList extends Component
 {
     public $search = '';
     public $pagelength;
+
+    public function delete($id)
+    {
+        // $rental = Rental::whereId($id)->first();
+        // dd($rental);
+        try {
+            $rental = Rental::whereId($id)->first();
+            $item = Item::whereId($rental->item_id)->first();
+            $item->update([
+                'status' => 'Non Aktif'
+            ]);
+            $rental->delete();
+            session()->flash('message', 'Data Penyewaan Berhasil Dihapus, ' . $item->nama . ' dapat disewakan.');
+        } catch (\Exception $e) {
+            session()->flash('message', $e->getMessage());
+        }
+    }
+
     public function render()
     {
         return view('livewire.rental-list', [
