@@ -66,6 +66,9 @@
             {{-- content --}}
             {{ $slot }}
             {{-- end content --}}
+            @if (Auth::user())
+                <div class="d-none d-print-block text-center">Dicetak oleh {{ Auth::user()->name }} pada {{ \Carbon\Carbon::now()->translatedFormat('l, d M Y H:i:s') }}</div>
+            @endif
 
             <div class="site-section ftco-subscribe-1 bg-img {{ request()->is('login*') ? 'd-none' : '' }} d-print-none">
                 <div class="container">

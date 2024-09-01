@@ -82,7 +82,7 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>No Hp</th>
-                                <th>Aksi</th>
+                                <th class="d-print-none">Aksi</th>
                             </tr>
                         </tfoot>
                     </table>

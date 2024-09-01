@@ -55,7 +55,7 @@
                                     <th>Nama</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
-                                    <th>Aksi</th>
+                                    <th class="d-print-none">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,7 +65,7 @@
                                         <td>{{ $item->nama }}</td>
                                         <td>{{ $item->status }}</td>
                                         <td>{{ $item->keterangan }}</td>
-                                        <td class="d-flex">
+                                        <td class="d-flex d-print-none">
                                             <a href="{{ url('item/' . $item->id) }}" wire:navigate class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
                                             <button {{ $item->status == 'Aktif' ? 'disabled' : '' }} type="button" wire:click="hapusItem({{ $item->id }})"
                                                 wire:confirm="Yakin ingin menghapus {{ $item->nama }}?" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
@@ -88,7 +88,7 @@
                                     <th>Nama</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
-                                    <th>Aksi</th>
+                                    <th class="d-print-none">Aksi</th>
                                 </tr>
                             </tfoot>
                         </table>

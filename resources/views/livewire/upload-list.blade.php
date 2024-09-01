@@ -103,7 +103,7 @@
                                     <th>Nama Penyewa</th>
                                     <th>Kode</th>
                                     <th class="d-none d-md-block">Tanggal</th>
-                                    <th>Aksi</th>
+                                    <th class="d-print-none">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -136,7 +136,7 @@
                                             Submit {{ $item->created_at->format('d, M Y H:i') }} Wib<br>
                                             Updated {{ $item->updated_at->format('d, M Y H:i') }} Wib
                                         </td>
-                                        <td>
+                                        <td class="d-print-none">
                                             <div class="d-flex">
                                                 <a href="{{ url('upload/update/' . $item->id) }}" wire:navigate class="btn btn-sm btn-warning mr-2"><i class="icon-pencil"></i></a>
                                                 <button type="button" wire:click="hapusItem({{ $item->id }})"
@@ -153,7 +153,7 @@
                                     <th>Nama Penyewa</th>
                                     <th>Kode</th>
                                     <th class="d-none d-md-block">Tanggal</th>
-                                    <th>Aksi</th>
+                                    <th class="d-print-none">Aksi</th>
                                 </tr>
                             </tfoot>
                         </table>

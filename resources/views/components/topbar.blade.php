@@ -1,4 +1,4 @@
-<div class="py-2 bg-light">
+<div class="py-2 bg-light d-print-none">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <style>

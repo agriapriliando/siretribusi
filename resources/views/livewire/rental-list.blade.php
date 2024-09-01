@@ -41,7 +41,7 @@
                                 <th>Nama | Merk</th>
                                 <th>Kirim Pesan</th>
                                 <th>Masa Sewa</th>
-                                <th>Aksi</th>
+                                <th class="d-print-none">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,7 +62,7 @@
                                         sd {{ \Carbon\Carbon::createFromFormat('Y-m-d', $r->tgl_selesai)->translatedFormat('j/m/Y') }} <br>
                                         Jatuh Tempo : {{ date('d', strtotime($r->tgl_mulai)) . '-' . \Carbon\Carbon::now()->addMonth()->format('M-Y') }}
                                     </td>
-                                    <td>
+                                    <td class="d-print-none">
                                         <div class="d-flex">
                                             <a href="{{ url('rental/' . $r->id) }}" class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
                                             <button wire:click.prevent="delete({{ $r->id }})" wire:confirm="Yakin ingin menghapus data Penyewaan? Data yang terhapus tidak bisa dipulihkan."
@@ -80,7 +80,7 @@
                                 <th>Nama | Merk</th>
                                 <th>Kirim Pesan</th>
                                 <th>Tanggal</th>
-                                <th>Aksi</th>
+                                <th class="d-print-none">Aksi</th>
                             </tr>
                         </tfoot>
                     </table>
