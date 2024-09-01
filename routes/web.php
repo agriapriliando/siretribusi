@@ -13,6 +13,7 @@ use App\Livewire\TenantUpdate;
 use App\Livewire\UploadBukti;
 use App\Livewire\UploadList;
 use App\Livewire\UploadSuccess;
+use App\Livewire\UploadUpdate;
 use App\Livewire\UserCreate;
 use App\Livewire\UserList;
 use App\Livewire\UserUpdate;
@@ -59,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/', UploadList::class);
     Route::get('upload/list', UploadList::class);
-    Route::get('upload/{id}/{user_id}', UploadBukti::class);
+    Route::get('upload/update/{id}', UploadUpdate::class);
     Route::get('upload/success', UploadSuccess::class);
+    Route::get('upload/{id}/', UploadBukti::class);
 });

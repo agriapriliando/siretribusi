@@ -25,7 +25,11 @@ class UserList extends Component
             $user->delete();
             session()->flash('message', 'Akun ' . $user->name . ' Berhasil Dihapus');
         } catch (\Exception $e) {
-            session()->flash($e->getMessage());
+            if ($e->getCode() == 23000) {
+                session()->flash('message', 'Akun tidak bisa dihapus, terhubung dengan data validasi bukti pembayaran');
+            } else {
+                session()->flash('message', $e->getMessage());
+            }
         }
     }
 

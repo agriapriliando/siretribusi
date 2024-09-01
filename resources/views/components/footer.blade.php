@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer d-print-none">
     <style>
         a {
             color: #55f763;

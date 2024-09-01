@@ -1,10 +1,10 @@
-<div>
+<div class="d-print-none">
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
         <div class="container">
             <div class="d-flex align-items-center">
                 <div class="site-logo">
-                    <a href="#" class="d-block">
+                    <a href="{{ url('') }}" wire:navigate class="d-block">
                         <img src="{{ asset('assets') }}/images/logo_simbida.png" style="max-width: 160px" alt="Image" class="img-fluid">
                     </a>
                 </div>
@@ -35,6 +35,7 @@
                 </div>
                 <div class="ml-auto">
                     <div class="social-wrap">
+                        <div>Hai {{ Auth::user()->name }}</div>
                         <a href="#"><span class="icon-facebook"></span></a>
                         <a href="#"><span class="icon-instagram"></span></a>
 

@@ -42,10 +42,10 @@
                     <div class="mb-2" x-data="{ files: null }">
                         <label for="username">Unggah Bukti Pembayaran</label>
                         <div class="custom-file">
-                            <input x-on:change="files = Object.values($event.target.files)" wire:model="file_bukti" type="file" class="custom-file-input" id="customFile">
+                            <input x-on:change="files = Object.values($event.target.files)" wire:model.live="file_bukti" type="file" class="custom-file-input" id="customFile">
                             <label x-text="files ? files.map(file => file.name).join(', ') : 'Choose single file...'" class="custom-file-label" for="customFile"></label>
                         </div>
-                        <small>File Max 1Mb atau 1024Kb | Harus Foto / Gambar</small>
+                        <small>File Max 1Mb atau 1024Kb | Berbentuk Screenshot / Foto / Gambar</small>
                         @error('file_bukti')
                             <div class="alert alert-warning">{{ $message }}</div>
                         @enderror

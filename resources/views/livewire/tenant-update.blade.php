@@ -58,7 +58,7 @@
                     @enderror
                 </div>
                 <div class="col-md-12 form-group">
-                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5" {{ $errors->any() ? 'disabled' : '' }}>
+                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5" {{ $errors->any() ? 'disabled' : '' }} wire:loading.attr="disabled">
                     <a href="{{ url('tenant/' . $id) }}" wire:navigate class="btn btn-warning btn-lg px-5">Reset</a>
                     <a href="{{ url('tenant/list') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>

@@ -11,6 +11,11 @@ class Rental extends Model
 
     protected $fillable = ['user_id', 'sector_id', 'tenant_id', 'item_id', 'merk_usaha', 'tgl_mulai', 'tgl_selesai', 'nominal', 'jenis_bayar', 'status_rental', 'keterangan'];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function sector()
     {
         return $this->belongsTo(Sector::class);
@@ -36,6 +41,8 @@ class Rental extends Model
             $query->where('nama', 'like', $term);
         })->orWhereHas('item', function ($query) use ($term) {
             $query->where('nama', 'like', $term);
+        })->orWhereHas('user', function ($query) use ($term) {
+            $query->where('name', 'like', $term);
         })->orWhereHas('sector', function ($query) use ($term) {
             $query->where('nama', 'like', $term);
         });

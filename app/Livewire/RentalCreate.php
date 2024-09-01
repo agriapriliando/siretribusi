@@ -16,13 +16,13 @@ use Livewire\Attributes\Title;
 class RentalCreate extends Component
 {
     public $user_id = 1;
-    #[Validate('required')]
+    #[Validate('required', message: 'Pilih Bidang Usaha')]
     public $sector_id;
-    #[Validate('required')]
+    #[Validate('required', message: 'Pilih Objek yang disewa')]
     public $item_id;
-    #[Validate('required')]
+    #[Validate('required', message: 'Pilih Nama Penyewa')]
     public $tenant_id;
-    #[Validate('required')]
+    #[Validate('required', message: 'Merk Usaha harus diisi')]
     public $merk_usaha;
     #[Validate('required')]
     public $tgl_mulai;
@@ -77,7 +77,7 @@ class RentalCreate extends Component
             'tenant_id' => $this->tenant_id,
             'merk_usaha' => $this->merk_usaha,
             'tgl_mulai' =>  $this->tgl_mulai,
-            'tgl_selesai' =>  $this->tgl_mulai,
+            'tgl_selesai' =>  $this->tgl_selesai,
             'nominal' => $this->nominal,
             'jenis_bayar' => $this->jenis_bayar,
             'status_rental' => $this->status_rental,

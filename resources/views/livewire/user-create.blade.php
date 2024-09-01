@@ -53,7 +53,7 @@
                     @enderror
                 </div>
                 <div class="col-md-12 form-group">
-                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5">
+                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5" wire:loading.attr="disabled">
                     <button wire:click.prevent="resetForm" class="btn btn-warning btn-lg px-5" type="button"><i class="icon-refresh"></i> Reset</button>
                     <a href="{{ url('user/list') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>

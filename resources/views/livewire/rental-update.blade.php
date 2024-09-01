@@ -69,7 +69,7 @@
                     @enderror
                 </div>
                 <div wire:ignore class="col-md-6 form-group">
-                    <label>Status Rental</label>
+                    <label>Status Aktivitas Sewa</label>
                     <select wire:model="status_rental" class="form-select w-100" id="status_rental" name="status_rental" data-placeholder="Pilih Status">
                         <option>Pilih Status</option>
                         <option value="Aktif" {{ $status_rental == 'Aktif' ? 'selected' : '' }}>Aktif</option>
@@ -82,7 +82,7 @@
                     <small class="text-muted">Isi jika diperlukan</small>
                 </div>
                 <div class="col-md-12 form-group">
-                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5">
+                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5" wire:loading.attr="disabled">
                     {{-- <input type="submit" value="Tambah" class="btn btn-success btn-lg px-5" {{ $errors->any() ? 'disabled' : '' }}> --}}
                     {{-- <input wire:click.prevent="resetForm" type="button" value="Reset" class="btn btn-warning btn-lg px-5"> --}}
                     <a href="{{ url('rental/list') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>

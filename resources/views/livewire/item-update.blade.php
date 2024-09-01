@@ -34,7 +34,7 @@
                     <textarea wire:model="keterangan" type="text" id="keterangan" class="form-control form-control-lg"></textarea>
                 </div>
                 <div class="col-md-12 form-group">
-                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5">
+                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5" wire:loading.attr="disabled">
                     <a href="{{ url('item') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>
             </div>

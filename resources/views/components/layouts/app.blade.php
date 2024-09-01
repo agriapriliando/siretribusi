@@ -67,7 +67,7 @@
             {{ $slot }}
             {{-- end content --}}
 
-            <div class="site-section ftco-subscribe-1 bg-img {{ request()->is('login*') ? 'd-none' : '' }}">
+            <div class="site-section ftco-subscribe-1 bg-img {{ request()->is('login*') ? 'd-none' : '' }} d-print-none">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col text-center">

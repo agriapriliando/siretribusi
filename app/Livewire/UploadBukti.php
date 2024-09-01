@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Proofpayment;
+use App\Models\Rental;
 use App\Models\Tenant;
 use Carbon\Carbon;
 use Livewire\Attributes\Layout;
@@ -17,7 +18,6 @@ class UploadBukti extends Component
     use WithFileUploads;
 
     public $kode = '';
-    public $user_id;
     #[Validate('required', message: "Keterangan Tidak Boleh Kosong")]
     public $ket_by_tenant;
     public $ket_by_admin;
@@ -33,10 +33,9 @@ class UploadBukti extends Component
 
     #[Title('Unggah Bukti Bayar')]
 
-    public function mount($id, $user_id)
+    public function mount($id)
     {
         $this->kode = $id;
-        $this->$user_id = $user_id;
         $this->tenant = Tenant::whereId($id)->first();
         // dd($this->tenant->nama);
     }
@@ -45,12 +44,12 @@ class UploadBukti extends Component
     {
         $this->validate();
         $kode_unik = Carbon::now()->format('dmY') . rand(100, 999);
-        $nama_file = strtolower(trim($this->tenant->nama)) . date('mYdHis_') . '.' . $this->file_bukti->getClientOriginalExtension();
+        $nama_file = strtolower(trim($this->tenant->nama)) . date('mYdHis_');
         $nama_file = str_replace(' ', '', $nama_file); // Replaces all spaces with hyphens.
         $nama_file = preg_replace('/[^A-Za-z0-9\-]/', '', $nama_file); // Removes special chars.
+        $nama_file = $nama_file . '.' . $this->file_bukti->getClientOriginalExtension(); // tambahkan extention file
         $this->file_bukti->storeAs('public/file_bukti', $nama_file);
         $dataProof = [
-            'user_id' => $this->user_id,
             'tenant_id' => $this->kode,
             'kode' => $kode_unik,
             'nama' => $this->tenant->nama,
@@ -64,8 +63,9 @@ class UploadBukti extends Component
         ];
         // dd($dataProof);
         Proofpayment::insert($dataProof);
-
-        session()->flash('message', 'Bukti Pembayaran <span class="font-weight-bold bg-warning">' . $kode_unik . '</span> An. ' . $this->tenant->nama . ' Berhasil Diunggah');
+        session()->put('kode', $kode_unik);
+        session()->put('nama', $this->tenant->nama);
+        session()->put('success', 'Bukti Pembayaran <span class="font-weight-bold bg-warning">' . $kode_unik . '</span> An. ' . $this->tenant->nama . ' Berhasil Diunggah');
 
         return $this->redirect('/upload/success', navigate: true);
     }

@@ -13,6 +13,8 @@ class UploadSuccess extends Component
 
     public function render()
     {
-        return view('livewire.upload-success');
+        return view('livewire.upload-success', [
+            'nohp' => '6285249441182'
+        ]);
     }
 }

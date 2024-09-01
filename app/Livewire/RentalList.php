@@ -34,7 +34,7 @@ class RentalList extends Component
     public function render()
     {
         return view('livewire.rental-list', [
-            'rentals' => Rental::with('sector', 'item', 'tenant')->search($this->search)
+            'rentals' => Rental::with('sector', 'item', 'tenant', 'user')->search($this->search)
                 // ->when($this->search_namanik, function ($query) {
                 //     $query->searchnamanik($this->search_namanik);
                 // })

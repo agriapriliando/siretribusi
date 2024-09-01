@@ -7,6 +7,7 @@ use App\Models\Rental;
 use App\Models\Sector;
 use App\Models\Tenant;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
@@ -17,7 +18,7 @@ class RentalUpdate extends Component
     public Rental $rental;
     #[Locked]
     public $id;
-    public $user_id = 1, $sector_id, $item_id, $tenant_id, $merk_usaha;
+    public $user_id, $sector_id, $item_id, $tenant_id, $merk_usaha;
     public $tgl_mulai, $tgl_selesai, $nominal, $jenis_bayar = 'Tahunan', $status_rental, $keterangan;
     public $tenants, $items, $sectors;
 
@@ -49,6 +50,7 @@ class RentalUpdate extends Component
 
     public function mount(Rental $rental)
     {
+        $this->user_id = Auth::id();
         $this->tenants = Tenant::all();
         $this->items = Item::orderBy('status', 'DESC')->get();
         $this->sectors = Sector::all();

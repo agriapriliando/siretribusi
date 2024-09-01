@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('proofpayments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->foreignUuid('tenant_id')->constrained();
+            $table->string('validator')->nullable();
             $table->string('kode');
             $table->string('nama');
             $table->string('nohp');
             $table->text('ket_by_tenant')->nullable();
             $table->text('ket_by_admin')->nullable();
-            $table->decimal('nominal', total: 14, places: 2)->nullable();
+            $table->integer('nominal')->nullable();
             $table->string('file_bukti')->nullable();
             $table->boolean('confirmed')->default(0);
             $table->text('alasan')->nullable();

@@ -11,14 +11,14 @@ class Proofpayment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'tenant_id', 'ket_by_tenant', 'ket_by_admin', 'file_bukti', 'confirmed'];
+    protected $fillable = ['validator', 'tenant_id', 'ket_by_tenant', 'ket_by_admin', 'file_bukti', 'confirmed'];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function tenants()
+    public function tenant()
     {
         return $this->belongsTo(Tenant::class);
     }
