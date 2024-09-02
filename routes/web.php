@@ -19,6 +19,7 @@ use App\Livewire\UserList;
 use App\Livewire\UserUpdate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,10 @@ Route::get('user/create', UserCreate::class);
 Route::get('user/{user}', UserUpdate::class);
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('deletetmp', function () {
+        Storage::deleteDirectory('livewire-tmp');
+        return redirect('/')->with('message', "Folder TMP berhasil dihapus");
+    });
     Route::get('item/list', ItemList::class);
     Route::get('item/create', ItemCreate::class);
     Route::get('item/{item}', ItemUpdate::class);
