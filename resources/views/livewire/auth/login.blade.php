@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center m-0">
     <style>
         .ftco-cover {
             background-size: cover;

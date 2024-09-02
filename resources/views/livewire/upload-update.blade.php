@@ -56,7 +56,8 @@
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="username">File Bukti</label>
-                    <img src="{{ asset('storage/file_bukti/' . $proofpayment->file_bukti) }}" class="img-fluid" alt="">
+                    <a wire:ignore class="fancy" href="{{ asset('storage/file_bukti/' . $proofpayment->file_bukti) }}"><img src="{{ asset('storage/file_bukti/' . $proofpayment->file_bukti) }}"
+                            class="img-fluid" alt=""></a>
                     <input value="Tanggal Upload : {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $proofpayment->created_at)->translatedFormat('j M Y H:i') }} Wib" type="text"
                         class="form-control form-control-lg mt-2" disabled>
                 </div>
@@ -77,4 +78,11 @@
             </div>
         </form>
     </div>
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $(".fancy").fancybox();
+            });
+        </script>
+    @endpush
 </div>

@@ -34,10 +34,12 @@
 
                 </div>
                 <div class="ml-auto">
+                    <div class="badge badge-success d-none d-md-block">Hai, {{ Auth::user()->name }}</div>
                     <div class="social-wrap">
-                        <div>Hai {{ Auth::user()->name }}</div>
-                        <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-instagram"></span></a>
+                        <div class="d-none">
+                            <a href="#"><span class="icon-facebook"></span></a>
+                            <a href="#"><span class="icon-instagram"></span></a>
+                        </div>
 
                         <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
                     </div>

@@ -68,7 +68,22 @@
                                             <button wire:click.prevent="delete({{ $r->id }})" wire:confirm="Yakin ingin menghapus data Penyewaan? Data yang terhapus tidak bisa dipulihkan."
                                                 type="submit" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
                                         </div>
-                                        <div class="badge badge-warning">Add by {{ $r->user->name }}</div>
+                                        <style>
+                                            .pophover .pop {
+                                                position: absolute;
+                                                display: none;
+                                                top: 34px;
+                                                left: 0;
+                                                background-color: aliceblue;
+                                            }
+
+                                            .pophover:hover .pop {
+                                                display: block
+                                            }
+                                        </style>
+                                        <div style="font-size:15px; line-height: 1.1; position: relative" class="mt-1 pophover">Last Update<br>by {{ $r->user->name }}
+                                            <span class="pop badge badge-warning">{{ $r->updated_at->format('d/m/Y H:i') }} Wib</span>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
