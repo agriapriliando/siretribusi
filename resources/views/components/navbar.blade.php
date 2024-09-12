@@ -12,7 +12,7 @@
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li class="{{ request()->is('rental*') ? 'active' : '' }}">
-                                <a href="{{ url('rental/list') }}" wire:navigate class="nav-link text-left">Penyewaan</a>
+                                <a href="{{ url('rental/list') }}" wire:navigate class="nav-link text-left">Transaksi</a>
                             </li>
                             <li class="{{ request()->is('upload*') ? 'active' : '' }}">
                                 <a href="{{ url('upload/list') }}" wire:navigate class="nav-link text-left">Validasi</a>
@@ -20,9 +20,9 @@
                             <li class="has-children">
                                 <a href="#" class="nav-link text-left">Data</a>
                                 <ul class="dropdown">
-                                    <li class="{{ request()->is('tenant*') ? 'active' : '' }}"><a href="{{ url('tenant/list') }}" wire:navigate>Penyewa</a></li>
-                                    <li class="{{ request()->is('item*') ? 'active' : '' }}"><a href="{{ url('item/list') }}" wire:navigate>Objek Sewa</a></li>
-                                    <li class="{{ request()->is('user*') ? 'active' : '' }}"><a href="{{ url('user/list') }}" wire:navigate>Pengguna</a></li>
+                                    <li class="{{ request()->is('tenant*') ? 'active' : '' }}"><a href="{{ url('tenant/list') }}" wire:navigate>Wajib Retribusi</a></li>
+                                    <li class="{{ request()->is('item*') ? 'active' : '' }}"><a href="{{ url('item/list') }}" wire:navigate>Objek Retribusi</a></li>
+                                    <li class="{{ request()->is('user*') ? 'active' : '' }}"><a href="{{ url('user/list') }}" wire:navigate>Akun</a></li>
                                 </ul>
                             </li>
                             <li>

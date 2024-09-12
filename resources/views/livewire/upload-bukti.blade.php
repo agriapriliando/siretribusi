@@ -1,4 +1,4 @@
-<div class="container my-4 mb-5">
+<div class="container my-4 mb-5 p-5">
     <div class="row justify-content-center text-center">
         <div class="col-lg-6 mb-5">
             <h2 data-aos="fade-left" class="section-title-underline">

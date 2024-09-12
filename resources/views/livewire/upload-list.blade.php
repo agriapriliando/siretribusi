@@ -111,7 +111,8 @@
                                     <tr wire:key={{ $item->id }} style="background-color: {{ $item->confirmed == 1 ? '#beffc8' : '#ffbebe' }};">
                                         <td>{{ ($uploads->currentpage() - 1) * $uploads->perpage() + $loop->index + 1 }}</td>
                                         <td style="max-width: 350px">
-                                            {{ $item->nama }} <a target="_blank" href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }},"><i
+                                            {{ $item->nama }} <a target="_blank"
+                                                href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}%0APembayaran%20Retribusi%20Anda%20dengan%20Kode%20{{ $item->kode }}%20Telah%20Divalidasi.%0ATerima%20Kasih."><i
                                                     style="color: #009c17;" class="icon-whatsapp"></i></a>
                                             <div style="font-style: italic">
                                                 {{ $item->ket_by_tenant }}
