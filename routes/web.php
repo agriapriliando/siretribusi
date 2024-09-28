@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Livewire\Auth\Login;
 use App\Livewire\ItemCreate;
 use App\Livewire\ItemList;
@@ -32,7 +33,9 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::get('login', Login::class)->name('login');
+// Route::get('login', Login::class)->name('login');
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
 
 Route::get('logout', function () {
     Auth::logout();

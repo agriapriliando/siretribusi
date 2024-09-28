@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nik')->unique();
+            $table->string('nik')->default(0);
             $table->string('nama');
             $table->text('alamat');
             $table->string('nohp');
-            $table->string('file_ktp');
+            $table->string('file_ktp')->default('noktp');
             $table->timestamps();
         });
     }

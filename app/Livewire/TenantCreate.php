@@ -13,7 +13,7 @@ class TenantCreate extends Component
 {
     use WithFileUploads;
     public Tenant $tenant;
-    #[Validate('unique:tenants,nik', message: 'NIK Sudah Digunakan')]
+    // #[Validate('unique:tenants,nik', message: 'NIK Sudah Digunakan')]
     #[Validate('required')]
     #[Validate('numeric')]
     #[Validate('digits:16', message: 'NIK Harus 16 Digit')]

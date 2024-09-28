@@ -43,7 +43,10 @@ class TenantList extends Component
     public function render()
     {
         return view('livewire.tenant-list', [
-            'tenants' => Tenant::search($this->search)
+            'tenants' => Tenant::when($this->search, function ($query) {
+                $this->resetPage();
+                $query->search($this->search);
+            })
                 ->when($this->search_namanik, function ($query) {
                     $query->searchnamanik($this->search_namanik);
                 })

@@ -44,7 +44,8 @@ class TenantUpdate extends Component
         return [
             'nama' => ['required', Rule::unique('tenants')->ignore($this->id)],
             'nohp' => ['required', 'numeric', Rule::unique('tenants')->ignore($this->id)],
-            'nik' => ['required', 'digits:16', 'numeric', Rule::unique('tenants')->ignore($this->id)],
+            // 'nik' => ['required', 'digits:16', 'numeric', Rule::unique('tenants')->ignore($this->id)],
+            'nik' => ['required', 'digits:16', 'numeric'],
             'alamat' => 'required',
             'file_ktp' => 'nullable|mimes:jpeg,jpg,png|max:1024'
         ];

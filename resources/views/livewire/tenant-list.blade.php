@@ -11,7 +11,7 @@
         <div class="row justify-content-center text-center">
             <div class="col-lg-6 mb-5">
                 <h2 class="section-title-underline">
-                    <span>Daftar Penyewa / Wajib Retribusi</span>
+                    <span>Daftar Wajib Retribusi</span>
                 </h2>
             </div>
         </div>
@@ -62,7 +62,7 @@
                                     <td>{{ $tenant->nama }} <br>
                                         <div class="badge badge-pill badge-warning">NIK : {{ $tenant->nik }}</div>
                                     </td>
-                                    <td><a href="https://api.whatsapp.com/send/?phone={{ $tenent->nohp }}?text=Hai%20NAMA%2C%20" class="btn btn-sm btn-success"><i class="icon-whatsapp"></i>
+                                    <td><a href="https://api.whatsapp.com/send/?phone={{ $tenant->nohp }}?text=Hai%20NAMA%2C%20" class="btn btn-sm btn-success"><i class="icon-whatsapp"></i>
                                             {{ $tenant->nohp }}</a>
                                     </td>
                                     <td class="d-print-none">

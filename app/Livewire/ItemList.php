@@ -18,6 +18,11 @@ class ItemList extends Component
 
     #[Title('List Objek Sewa')]
 
+    public function resetSearch()
+    {
+        $this->reset('search');
+    }
+
     public function hapusItem($id)
     {
         try {
@@ -36,10 +41,12 @@ class ItemList extends Component
     public function render()
     {
         return view('livewire.item-list', [
-            'items' => Item::search($this->search)
-                ->when($this->status, function ($query) {
-                    $query->where('status', $this->status);
-                })
+            'items' => Item::when($this->search, function ($query) {
+                $this->resetPage();
+                $query->search($this->search);
+            })->when($this->status, function ($query) {
+                $query->where('status', $this->status);
+            })
                 ->orderBy('status')
                 ->paginate($this->pagelength)
         ]);
