@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -13,8 +14,9 @@ class UploadSuccess extends Component
 
     public function render()
     {
+        $user = User::where('id', 2)->first();
         return view('livewire.upload-success', [
-            'nohp' => '6285249441182'
+            'nohp' => $user->nohp
         ]);
     }
 }
