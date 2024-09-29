@@ -30,7 +30,16 @@ class UserSeeder extends Seeder
                 'username' => 'fajar',
                 'email' => 'fajar@gmail.com',
                 'email_verified_at' => now(),
-                'password' => bcrypt('123'),
+                'password' => bcrypt('fajar2024'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'name' => 'M. HIDAYAT',
+                'username' => 'hidayat',
+                'email' => 'm.hidayatstudio9@gmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('hidayat2024'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]
