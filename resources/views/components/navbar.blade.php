@@ -22,7 +22,9 @@
                                 <ul class="dropdown">
                                     <li class="{{ request()->is('tenant*') ? 'active' : '' }}"><a href="{{ url('tenant/list') }}" wire:navigate>Wajib Retribusi</a></li>
                                     <li class="{{ request()->is('item*') ? 'active' : '' }}"><a href="{{ url('item/list') }}" wire:navigate>Objek Retribusi</a></li>
-                                    <li class="{{ request()->is('user*') ? 'active' : '' }}"><a href="{{ url('user/list') }}" wire:navigate>Akun</a></li>
+                                    @if (Auth::id() == 1 || Auth::id() == 2)
+                                        <li class="{{ request()->is('user*') ? 'active' : '' }}"><a href="{{ url('user/list') }}" wire:navigate>Akun</a></li>
+                                    @endif
                                 </ul>
                             </li>
                             <li>
