@@ -1,4 +1,4 @@
-<div class="container my-4 mb-5 p-5">
+<div class="container my-4 mb-5 px-5">
     <div class="row justify-content-center text-center">
         <div class="col-lg-6 mb-5">
             <h2 data-aos="fade-left" class="section-title-underline">
@@ -9,19 +9,23 @@
     <div class="row justify-content-center">
         <div class="col-md-10 text-center mb-1">
             <p class="">Hai, <span style="font-size: 22px;" class="font-weight-bolder badge badge-success">{{ $tenant->nama }}
-                </span> Silahkan melakukan pembayaran melalui QRIS berikut ini sejumlah nomimal yang tertera pada pesan Whatsapp, lalu Unggah/Upload Screenshot/Foto Bukti Pembayaran. Terima Kasih.
+                </span> Silahkan melakukan pembayaran sejumlah nomimal yang tertera pada pesan Whatsapp melalui TRANSFER BANK, lalu Unggah/Upload Screenshot/Foto Bukti Pembayaran. Terima Kasih.
+            </p>
+            <p style="text-decoration: underline">Rekening BRI (Bank Rakyat Indonesia) <br>
+                An. Dinas Perdagangan, Koperasi, UKM dan Perindustrian Kota Palangka Raya
+                <br><span style="font-size: 22px;" class="font-weight-bolder badge badge-success">024301003970307</span>
             </p>
         </div>
         <form wire:submit="create">
             <div class="row">
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center d-none">
                     <img src="{{ asset('assets') }}/images/qrcode.png" style="max-width: 300px;" alt="">
                 </div>
-                <div class="col-md-8">
+                <div class="col-12">
                     <div class="form-group">
                         <label for="username">Isi Keterangan - </label>
+                        <textarea wire:model="ket_by_tenant" name="ket_by_tenant" class="form-control" rows=""></textarea>
                         <small class="text-muted">Contoh : Bayar Bulan Maret 2024, Kontainer 01 dan 03</small>
-                        <textarea wire:model="ket_by_tenant" name="ket_by_tenant" class="form-control" rows="4"></textarea>
                         @error('ket_by_tenant')
                             <div class="alert alert-warning">{{ $message }}</div>
                         @enderror

@@ -11,7 +11,7 @@
         <div class="row justify-content-center text-center">
             <div class="col-lg-6 mb-2">
                 <h2 class="section-title-underline">
-                    <span>Daftar Penyewaan</span>
+                    <span>Daftar Transaksi</span>
                 </h2>
             </div>
         </div>

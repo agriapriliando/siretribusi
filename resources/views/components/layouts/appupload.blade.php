@@ -34,9 +34,7 @@
 </head>
 
 <body>
-    <div class="site-wrap">
-
-        <x-topbar></x-topbar>
+    <div class="p-0 m-0">
         <style>
             input[type=text]:focus,
             textarea[type=text]:focus {
@@ -45,7 +43,7 @@
                 box-shadow: 0 0 3px #017e03;
             }
         </style>
-        <div class="mt-5">
+        <div class="p-0 m-0">
             {{-- content --}}
             {{ $slot }}
             {{-- end content --}}
