@@ -62,7 +62,8 @@
                                     <td>{{ $tenant->nama }} <br>
                                         <div class="badge badge-pill badge-warning">NIK : {{ $tenant->nik }}</div>
                                     </td>
-                                    <td><a href="https://api.whatsapp.com/send/?phone={{ $tenant->nohp }}?text=Hai%20NAMA%2C%20" class="btn btn-sm btn-success"><i class="icon-whatsapp"></i>
+                                    <td><a target="_blank" href="https://api.whatsapp.com/send/?phone={{ $tenant->nohp }}&text=Hai%20{{ $tenant->nama }}%2C%20" class="btn btn-sm btn-success"><i
+                                                class="icon-whatsapp"></i>
                                             {{ $tenant->nohp }}</a>
                                     </td>
                                     <td class="d-print-none">

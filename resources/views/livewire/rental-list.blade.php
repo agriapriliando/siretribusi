@@ -100,7 +100,7 @@
                         </tfoot>
                     </table>
                 </div>
-                {{-- {{ $tenants->links() }} --}}
+                {{ $rentals->links() }}
             </div>
         </div>
     </div>

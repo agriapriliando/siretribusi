@@ -28,8 +28,7 @@ class RentalUpdate extends Component
     {
         $this->validate();
         if ($property == 'tgl_mulai') {
-            $this->tgl_selesai = Carbon::createFromFormat('Y-m-d', $this->tgl_mulai)->addYear()->toDateString();
-            // $this->tgl_selesai = $this->tgl_mulai;
+            $this->tgl_selesai = Carbon::createFromFormat('Y-m-d', $this->tgl_mulai)->addYear()->subDay()->toDateString();
         }
     }
 

@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             TenantSeeder::class,
             ItemSeeder::class,
-            // SectorSeeder::class,
+            SectorSeeder::class,
+            RentalSeeder::class,
         ]);
     }
 }

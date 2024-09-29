@@ -26,7 +26,7 @@
                 <div class="col-md-6 form-group">
                     <label for="username">No HP</label>
                     <input wire:model.live="nohp" type="text" name="nohp" class="form-control" inputmode="numeric">
-                    <small class="text-muted">Pastikan No Whatsapp Aktif</small>
+                    <small class="text-muted">Diawali dengan 62xxxxx | Pastikan No Whatsapp Aktif</small>
                     @error('nohp')
                         <div class="alert alert-warning mt-2">{{ $message }}</div>
                     @enderror

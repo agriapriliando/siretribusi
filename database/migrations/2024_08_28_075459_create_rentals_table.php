@@ -17,11 +17,11 @@ return new class extends Migration
             $table->foreignId('sector_id')->constrained();
             $table->foreignId('item_id')->constrained();
             $table->foreignUuid('tenant_id')->constrained();
-            $table->string('merk_usaha');
+            $table->string('merk_usaha')->nullable();
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
             $table->integer('nominal');
-            $table->enum('jenis_bayar', ['tahunan', 'bulanan']);
+            $table->enum('jenis_bayar', ['Tahunan', 'Bulanan']);
             $table->string('status_rental'); // aktif, selesai, batal, dsb
             $table->text('keterangan')->nullable();
             $table->timestamps();

@@ -6,13 +6,21 @@ use App\Models\Item;
 use App\Models\Rental;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class RentalList extends Component
 {
+    use WithPagination;
     public $search = '';
     public $pagelength;
 
     #[Title('List Sewa')]
+
+    public function updateSearch()
+    {
+        $this->reset($this->search);
+        $this->goToPage(1);
+    }
 
     public function delete($id)
     {
@@ -36,7 +44,6 @@ class RentalList extends Component
         return view('livewire.rental-list', [
             'rentals' => Rental::with('sector', 'item', 'tenant', 'user')
                 ->when($this->search, function ($query) {
-                    $this->resetPage();
                     $query->search($this->search);
                 })
                 // ->when($this->search_namanik, function ($query) {
