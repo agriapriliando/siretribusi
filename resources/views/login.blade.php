@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="w-100 my-0 py-0">
-        <div class="row justify-content-center mx-0">
-            <div class="col-md-6 ftco-cover bg-img">
+        <div class="row justify-content-center mx-0 px-0">
+            <div class="col-md-6">
+                <img src="{{ asset('') }}assets/images/bg_front.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6 ftco-cover bg-img d-none">
                 <div class="row justify-content-center align-items-center h-100 text-center" style="min-height: 200px;">
                     <div class="col-lg-7" style="z-index: 2; color: aliceblue;">
                         <h2>Login</h2>

@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -21,6 +22,7 @@ class Topbar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.topbar');
+        $user = User::where('id', 2)->first();
+        return view('components.topbar', compact('user'));
     }
 }

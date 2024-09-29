@@ -8,10 +8,9 @@
         <div class="row">
             <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="100" data-aos-offset="0" class="col-lg-6">
                 <p class="mb-4"><img src="{{ asset('assets') }}/images/logo_simbida.png" style="max-width: 300px" alt="Image" class="img-fluid"></p>
-                <p style="font-size: 19px">Dinas Perdagangan, Koperasi, UKM, dan Perindustrian Kota Palangka Raya bertugas mengelola dan mengembangkan sektor perdagangan, koperasi, usaha kecil dan
-                    menengah,
-                    serta industri
-                    untuk mendukung pertumbuhan ekonomi lokal dan kesejahteraan masyarakat</p>
+                <p style="font-size: 21px">Selamat Datang di Sistem Retribusi Perdagangan Kota Palangka Raya</p>
+                <p style="font-size: 17px">Dinas Perdagangan, Koperasi, UKM, dan Perindustrian Kota Palangka Raya bertugas mengelola dan mengembangkan sektor perdagangan, koperasi, usaha kecil dan
+                    menengah, serta industri untuk mendukung pertumbuhan ekonomi lokal dan kesejahteraan masyarakat</p>
             </div>
             <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="200" data-aos-offset="0" class="col-lg-3 d-none">
                 <h3 style="font-size: 23px" class="footer-heading"><span>Pintasan</span></h3>
