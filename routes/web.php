@@ -49,6 +49,9 @@ Route::get('user/list', UserList::class);
 Route::get('user/create', UserCreate::class);
 Route::get('user/{user}', UserUpdate::class);
 
+Route::get('upload/success', UploadSuccess::class);
+Route::get('upload/{id}/', UploadBukti::class);
+
 Route::middleware(['auth'])->group(function () {
     Route::get('deletetmp', function () {
         Storage::deleteDirectory('livewire-tmp');
@@ -69,6 +72,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', UploadList::class);
     Route::get('upload/list', UploadList::class);
     Route::get('upload/update/{id}', UploadUpdate::class);
-    Route::get('upload/success', UploadSuccess::class);
-    Route::get('upload/{id}/', UploadBukti::class);
 });
