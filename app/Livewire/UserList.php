@@ -36,7 +36,7 @@ class UserList extends Component
     public function render()
     {
         return view('livewire.user-list', [
-            'users' => User::search($this->search)
+            'users' => User::where('id', '!=', 1)->search($this->search)
                 ->orderBy('name')
                 ->paginate($this->pagelength)
         ]);
