@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-md-12 form-group">
                     <input type="submit" value="Update" class="btn btn-success btn-lg px-5" wire:loading.attr="disabled">
-                    <a href="{{ url('item') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
+                    <a href="{{ url('item/list') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>
             </div>
         </form>
