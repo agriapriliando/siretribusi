@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
                 'email' => 'agri@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('123'),
+                'nohp' => '6285249441182',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
                 'email' => 'fajar@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('fajar2024'),
+                'nohp' => '6281250071300',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -40,6 +42,7 @@ class UserSeeder extends Seeder
                 'email' => 'm.hidayatstudio9@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('hidayat2024'),
+                'nohp' => '6281334805691',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]
