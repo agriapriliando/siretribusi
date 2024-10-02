@@ -54,13 +54,13 @@
                                         <div class="badge badge-pill badge-warning">{{ $r->merk_usaha }}</div>
                                     </td>
                                     <td><a target="_blank"
-                                            href="https://api.whatsapp.com/send/?phone={{ $r->tenant->nohp }}&text=Hai%20{{ $r->tenant->nama }}%2C%20segera%20lakukan%20Pembayaran%20Retribusi%20{{ $r->item->nama }}%2C%0ASejumlah%20Rp%20%3A%20{{ $r->nominal }}%20untuk%20Bulan%20{{ \Carbon\Carbon::now()->addMonth()->format('M-Y') }}%0ASebelum%20Jatuh%20Tempo%20{{ \Carbon\Carbon::parse($r->tgl_mulai)->addDays(9)->format('d') .'-' .\Carbon\Carbon::now()->addMonth()->format('M-Y') }}%0AUnggah%20bukti%20pembayaran%20melalui%20link%20berikut%20ini.%0A%0A{{ url('upload/' . $r->tenant_id) }}%0A%0ATerima%20Kasih."
+                                            href="https://api.whatsapp.com/send/?phone={{ $r->tenant->nohp }}&text=Hai%20{{ $r->tenant->nama }}%2C%20segera%20lakukan%20Pembayaran%20Retribusi%20{{ $r->item->nama }}%2C%0ASejumlah%20Rp%20%3A%20{{ $r->nominal }}%20untuk%20Bulan%20{{ \Carbon\Carbon::now()->addMonth()->format('M-Y') }}%0ASebelum%20Jatuh%20Tempo%20{{ \Carbon\Carbon::parse($r->tgl_mulai)->addDays(9)->format('d') .'-' .\Carbon\Carbon::now()->format('M-Y') }}%0AUnggah%20bukti%20pembayaran%20melalui%20link%20berikut%20ini.%0A%0A{{ url('upload/' . $r->tenant_id) }}%0A%0ATerima%20Kasih."
                                             class="btn btn-sm btn-success"><i class="icon-whatsapp"></i>
                                             Klik WA</a>
                                     </td>
                                     <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $r->tgl_mulai)->translatedFormat('j/m/Y') }}
                                         sd {{ \Carbon\Carbon::createFromFormat('Y-m-d', $r->tgl_selesai)->translatedFormat('j/m/Y') }} <br>
-                                        Jatuh Tempo : {{ \Carbon\Carbon::parse($r->tgl_mulai)->addDays(9)->format('d') .'-' .\Carbon\Carbon::now()->addMonth()->format('M-Y') }}
+                                        Jatuh Tempo : {{ \Carbon\Carbon::parse($r->tgl_mulai)->addDays(9)->format('d') .'-' .\Carbon\Carbon::now()->format('M-Y') }}
                                     </td>
                                     <td class="d-print-none">
                                         <div class="d-flex">
