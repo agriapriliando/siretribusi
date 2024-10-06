@@ -111,15 +111,19 @@
                                     <tr wire:key={{ $item->id }} style="background-color: {{ $item->confirmed == 1 ? '#beffc8' : '#ffbebe' }};">
                                         <td>{{ ($uploads->currentpage() - 1) * $uploads->perpage() + $loop->index + 1 }}</td>
                                         <td style="max-width: 350px">
-                                            {{ $item->nama }} <a target="_blank"
-                                                href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}%0APembayaran%20Retribusi%20Anda%20dengan%20Kode%20{{ $item->kode }}%20Telah%20Divalidasi.%0ATerima%20Kasih."><i
-                                                    style="color: #009c17;" class="icon-whatsapp"></i></a>
-                                            <div style="font-style: italic">
-                                                {{ $item->ket_by_tenant }}
-                                            </div>
+                                            {{ $item->nama }}
                                             <div style="font-style: italic">
                                                 Sejumlah @currency($item->nominal)
                                             </div>
+                                            @if ($item->confirmed == 1)
+                                                <a target="_blank" class="btn btn-success btn-sm"
+                                                    href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}%0APembayaran%20Retribusi%20Anda%20dengan%20Kode%20{{ $item->kode }}%20Telah%20Divalidasi.%0ATerima%20Kasih."><i
+                                                        style="color: #009c17;" class="icon-whatsapp text-white"></i> Konfirmasi Validasi</a>
+                                            @else
+                                                <a target="_blank" class="btn btn-success btn-sm"
+                                                    href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}"><i style="color: #009c17;"
+                                                        class="icon-whatsapp text-white"></i> Chat</a>
+                                            @endif
                                         </td>
                                         <td>
                                             <span class="font-weight-bold">{{ $item->kode }}</span>
@@ -129,13 +133,13 @@
                                             <span wire:confirm="Yakin Merubah Status Valid?" wire:click="ubah_status({{ $item->id }})"
                                                 class="btn btn-sm {{ $item->confirmed == 1 ? 'btn-success' : 'btn-danger' }}">{{ $item->confirmed == 1 ? 'Valid by ' . $item->validator : 'Belum Valid' }}</span>
                                             <div class="d-md-none">
-                                                <span class="badge pill-badge badge-warning">Submit {{ $item->created_at->format('d/m/Y H:i') }} Wib</span><br>
-                                                <span class="badge pill-badge badge-warning">Updated {{ $item->updated_at->format('d/m/Y H:i') }} Wib</span>
+                                                <span class="badge pill-badge badge-warning">Submit {{ $item->created_at->translatedFormat('d/m/Y H:i') }} Wib</span><br>
+                                                <span class="badge pill-badge badge-warning">Updated {{ $item->updated_at->translatedFormat('d/m/Y H:i') }} Wib</span>
                                             </div>
                                         </td>
                                         <td class="d-none d-md-block">
-                                            Submit {{ $item->created_at->format('d, M Y H:i') }} Wib<br>
-                                            Updated {{ $item->updated_at->format('d, M Y H:i') }} Wib
+                                            Dikirim {{ $item->created_at->translatedFormat('d M Y H:i') }} Wib<br>
+                                            Updated {{ $item->updated_at->translatedFormat('d M Y H:i') }} Wib
                                         </td>
                                         <td class="d-print-none">
                                             <div class="d-flex">
