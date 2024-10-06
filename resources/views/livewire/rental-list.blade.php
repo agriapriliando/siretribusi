@@ -76,11 +76,11 @@
                                                 type="submit" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
                                         </div>
                                         <style>
-                                            .pophover .pop {
+                                            .pop {
                                                 position: absolute;
                                                 display: none;
                                                 top: 34px;
-                                                left: 0;
+                                                left: -30px;
                                                 background-color: aliceblue;
                                             }
 

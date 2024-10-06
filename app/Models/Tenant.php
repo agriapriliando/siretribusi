@@ -13,6 +13,11 @@ class Tenant extends Model
     public $incrementing = false;
     protected $fillable = ['nik', 'nama', 'alamat', 'nohp', 'file_ktp'];
 
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
+
     public function scopeSearch($query, $term)
     {
         $term = "%$term%";

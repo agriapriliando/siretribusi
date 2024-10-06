@@ -60,7 +60,8 @@
                                 <tr wire:key={{ $tenant->id }}>
                                     <td>{{ ($tenants->currentpage() - 1) * $tenants->perpage() + $loop->index + 1 }}</td>
                                     <td>{{ $tenant->nama }} <br>
-                                        <div class="badge badge-pill badge-warning">NIK : {{ $tenant->nik }}</div>
+                                        <div class="badge badge-pill badge-warning">NIK : {{ $tenant->nik }}</div><br>
+                                        <div class="badge badge-pill badge-success">Transaksi : {{ $tenant->rentals_count }}</div><br>
                                     </td>
                                     <td><a target="_blank" href="https://api.whatsapp.com/send/?phone={{ $tenant->nohp }}&text=Hai%20{{ $tenant->nama }}%2C%20" class="btn btn-sm btn-success"><i
                                                 class="icon-whatsapp"></i>
