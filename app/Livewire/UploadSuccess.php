@@ -14,7 +14,10 @@ class UploadSuccess extends Component
 
     public function render()
     {
-        $user = User::where('id', 2)->first();
+        $user = User::where('username', 'adminvalidasi')->first();
+        if ($user == null) {
+            $user = User::where('id', 2)->first();
+        }
         return view('livewire.upload-success', [
             'nohp' => $user->nohp
         ]);
