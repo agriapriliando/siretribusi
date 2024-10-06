@@ -89,12 +89,33 @@ class RentalUpdate extends Component
         // dd($datarental);
         DB::transaction(function () use ($datarental, $old_item_id) {
             Rental::whereId($datarental['id'])->update($datarental);
-            Item::whereId($old_item_id)->update([
-                'status' => 'Non Aktif'
-            ]);
-            Item::whereId($datarental['item_id'])->update([
-                'status' => 'Aktif'
-            ]);
+            if ($old_item_id != $datarental['item_id']) {
+                Item::whereId($old_item_id)->update([
+                    'status' => 'Non Aktif'
+                ]);
+                Item::whereId($datarental['item_id'])->update([
+                    'status' => 'Aktif'
+                ]);
+                if ($datarental['status_rental'] == 'Selesai' || $datarental['status_rental'] == 'Non Aktif') {
+                    Item::whereId($datarental['item_id'])->update([
+                        'status' => 'Non Aktif'
+                    ]);
+                } else {
+                    Item::whereId($datarental['item_id'])->update([
+                        'status' => 'Aktif'
+                    ]);
+                }
+            } else {
+                if ($datarental['status_rental'] == 'Selesai' || $datarental['status_rental'] == 'Non Aktif') {
+                    Item::whereId($datarental['item_id'])->update([
+                        'status' => 'Non Aktif'
+                    ]);
+                } else {
+                    Item::whereId($datarental['item_id'])->update([
+                        'status' => 'Aktif'
+                    ]);
+                }
+            }
         });
 
         session()->flash('message', 'Data Penyewaan ' . $this->rental->tenant->nama . ' Berhasil Diperbaharui');
