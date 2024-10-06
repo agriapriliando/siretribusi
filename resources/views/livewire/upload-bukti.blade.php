@@ -9,7 +9,8 @@
     <div class="row justify-content-center">
         <div class="col-md-10 text-center mb-1">
             <p class="">Hai, <span style="font-size: 22px;" class="font-weight-bolder badge badge-success">{{ $tenant->nama }}
-                </span> Silahkan melakukan pembayaran sejumlah nomimal yang tertera pada pesan Whatsapp melalui TRANSFER BANK, lalu Unggah/Upload Screenshot/Foto Bukti Pembayaran. Terima Kasih.
+                </span> Silahkan melakukan pembayaran retribusi TRANSFER BANK BRI sesuai nominal yang tercantum di pesan Whatsapp, kemudian Unggah/Upload Screenshot/Foto Bukti Pembayaran. Terima
+                Kasih.
             </p>
             <style>
                 .pointercursor {
@@ -19,7 +20,7 @@
             <p x-data="{ input: '024301003970307', showMsg: false }" style="font-size: 22px;" class="font-weight-bolder">Rekening BRI (Bank Rakyat Indonesia) <br>
                 An. Dinas Perdagangan, Koperasi, UKM dan Perindustrian Kota Palangka Raya
                 <br><span @click="navigator.clipboard.writeText(input), showMsg = true, setInterval(() => showMsg = false, 2000)" style="font-size: 22px;"
-                    class="pointercursor font-weight-bolder badge badge-success">No Rekening : 024301003970307 <i class="icon-copy"></i></span><br>
+                    class="pointercursor font-weight-bolder badge badge-success">No Rekening <br>024301003970307 <i class="icon-copy"></i></span><br>
                 <span x-show="showMsg" @click.away="showMsg = false" class="badge badge-success">No Rekening Copied</span>
             </p>
         </div>
@@ -55,7 +56,7 @@
                         <div wire:loading wire:target="file_bukti" class="alert alert-warning">Tunggu, Sedang Memerika File....</div>
                         <div class="custom-file">
                             <input x-on:change="files = Object.values($event.target.files)" wire:model.live="file_bukti" type="file" class="custom-file-input" id="customFile">
-                            <label x-text="files ? files.map(file => file.name).join(', ') : 'Pilih File'" class="custom-file-label" for="customFile"></label>
+                            <label x-text="files ? files.map(file => file.name).join(', ') : 'Pilih File Foto'" class="custom-file-label" for="customFile"></label>
                         </div>
                         <small>File Max 1,5Mb atau 1500Kb | Berbentuk Screenshot / Foto / Gambar</small>
                         @error('file_bukti')
