@@ -38,13 +38,17 @@
                     <div class="col-6 col-md-2">
                         <a href="{{ url('user/create') }}" wire:navigate class="btn btn-success float-right"><i class="icon-plus"></i> Tambah</a>
                     </div>
+                    <div class="col-12">
+                        <p class="bg-primary text-white rounded px-2 py-1">No Kontak Konfirmasi Pembayaran : {{ $adminvalidasi->nohp }} <a href="{{ url('user/' . $adminvalidasi->id) }}"> Ubah</a>
+                        </p>
+                    </div>
                     <div class="col-12 table-responsive">
                         <table class="table table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Email</th>
+                                    <th>Nama | username</th>
+                                    <th>Email | No HP</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -53,7 +57,7 @@
                                     <tr wire:key={{ $u->id }}>
                                         <td scope="row">{{ ($users->currentpage() - 1) * $users->perpage() + $loop->index + 1 }}</td>
                                         <td>{{ $u->name }} <br> <span class="badge pill-badge badge-warning">{{ $u->username }}</span></td>
-                                        <td>{{ $u->email }}</td>
+                                        <td>{{ $u->email }} <br> {{ $u->nohp }}</td>
                                         <td class="d-flex">
                                             <a href="{{ url('user/' . $u->id) }}" wire:navigate class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
                                             <button {{ $u->status == 'Aktif' ? 'disabled' : '' }} type="button" wire:click="delete({{ $u->id }})"

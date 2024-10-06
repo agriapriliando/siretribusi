@@ -10,7 +10,7 @@ use Livewire\Component;
 class UserCreate extends Component
 {
     public User $user;
-    public $name, $username, $email, $password;
+    public $name, $username, $email, $password, $nohp;
 
     #[Title('Tambah User')]
 
@@ -25,6 +25,7 @@ class UserCreate extends Component
             'name' => ['required', 'unique:users,name'],
             'username' => ['required', 'alpha_dash:ascii', 'unique:users,username'],
             'email' => ['required', 'email', 'unique:users,email'],
+            'nohp' => ['required'],
             'password' => ['required'],
         ];
     }
@@ -40,6 +41,7 @@ class UserCreate extends Component
             'name.unique' => 'Nama Sudah Digunakan.',
             'username.unique' => 'Username Sudah Digunakan.',
             'username.alpha_dash' => 'Username hanya boleh menggunakan Huruf dan Angka Tanpa Spasi',
+            'nohp.required' => 'No HP Harus Diisi',
             'email.unique' => 'Email Sudah Digunakan',
         ];
     }
@@ -53,6 +55,7 @@ class UserCreate extends Component
             'username' => strtolower($this->username),
             'email' => $this->email,
             'password' => bcrypt($this->password),
+            'nohp' => $this->nohp
         ];
         try {
             User::create($dataUser);

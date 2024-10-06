@@ -22,6 +22,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'nohp',
     ];
 
     /**
@@ -55,6 +56,7 @@ class User extends Authenticatable
         $query->where(function ($query) use ($term) {
             $query->where('username', 'like', $term)
                 ->orWhere('name', 'like', $term)
+                ->orWhere('nohp', 'like', $term)
                 ->orWhere('email', 'like', $term);
         });
     }

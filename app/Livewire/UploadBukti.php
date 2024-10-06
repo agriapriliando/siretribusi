@@ -26,7 +26,7 @@ class UploadBukti extends Component
     public $nominal;
     #[Validate('required', message: "Silahkan Pilih Bukti Pembayaran")]
     #[Validate('mimes:jpeg,jpg,png', message: "Tipe File Harus Berbentuk Foto / Gambar")]
-    #[Validate('max:1024', message: "Ukuran Maksimal 1 Mb atau 1024 Kb")]
+    #[Validate('max:2048', message: "Ukuran Maksimal 2Mb atau 2048 Kb")]
     public $file_bukti;
     public $confirmed;
     public $tenant;

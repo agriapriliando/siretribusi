@@ -13,6 +13,7 @@ class UserUpdate extends Component
     public $name;
     public $username;
     public $email;
+    public $nohp;
     public $password;
 
     #[Title('Update User')]
@@ -28,6 +29,7 @@ class UserUpdate extends Component
             'name' => ['required', Rule::unique('users')->ignore($this->user->id)],
             'username' => ['required', Rule::unique('users')->ignore($this->user->id)],
             'email' => ['required', Rule::unique('users')->ignore($this->user->id)],
+            'nohp' => ['required', Rule::unique('users')->ignore($this->user->id)],
         ];
     }
 
@@ -37,6 +39,7 @@ class UserUpdate extends Component
             'name.unique' => 'Nama Sudah Digunakan.',
             'username.unique' => 'Username Sudah Digunakan.',
             'email.unique' => 'Email Sudah Digunakan',
+            'nohp.unique' => 'No HP Sudah Digunakan',
         ];
     }
 
@@ -45,6 +48,7 @@ class UserUpdate extends Component
         $this->name = $user->name;
         $this->username = $user->username;
         $this->email = $user->email;
+        $this->nohp = $user->nohp;
     }
 
     public function update()
@@ -54,6 +58,7 @@ class UserUpdate extends Component
             'name' => $this->name,
             'username' => $this->username,
             'email' => $this->email,
+            'nohp' => $this->nohp
         ];
         try {
             if ($this->password) {

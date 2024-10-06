@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>Simbida Palangka Raya</title>
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/icomoon/style.css">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon-simbida-32x32.png') }}">
 
     {{-- <link rel="stylesheet" href="{{ asset('assets') }}/css/bootstrap.min.css"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -43,6 +44,7 @@
                 box-shadow: 0 0 3px #017e03;
             }
         </style>
+        <x-topbar></x-topbar>
         <div class="p-0 m-0">
             {{-- content --}}
             {{ $slot }}

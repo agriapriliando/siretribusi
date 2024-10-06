@@ -17,4 +17,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-/resources/views/components/layouts
+# /resources/views/components/layouts

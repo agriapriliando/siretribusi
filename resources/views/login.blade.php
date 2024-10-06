@@ -1,5 +1,5 @@
 @extends('components.layouts.applogin')
-
+@section('title', 'Simbida Palangka Raya')
 @section('content')
     <div class="w-100 my-0 py-0">
         <div class="row justify-content-center mx-0 px-0">

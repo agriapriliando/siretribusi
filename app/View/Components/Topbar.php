@@ -22,7 +22,10 @@ class Topbar extends Component
      */
     public function render(): View|Closure|string
     {
-        $user = User::where('id', 2)->first();
+        $user = User::where('username', 'adminvalidasi')->first();
+        if ($user == null) {
+            $user = User::where('id', 2)->first();
+        }
         return view('components.topbar', compact('user'));
     }
 }

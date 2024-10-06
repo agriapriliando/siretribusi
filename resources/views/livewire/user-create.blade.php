@@ -40,6 +40,14 @@
                     @enderror
                 </div>
                 <div class="col-md-6 form-group">
+                    <label>No HP</label>
+                    <input wire:model.blur="nohp" type="text" id="nohp" class="form-control form-control-lg" inputmode="numeric">
+                    <small class="text-muted">Diawali dengan 62xxxxx | Pastikan No Whatsapp Aktif</small>
+                    @error('nohp')
+                        <div class="alert alert-warning">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-6 form-group">
                     <label for="pword">Password</label>
                     <div class="input-group" x-data="{ show: true }">
                         <input wire:model="password" :type="show ? 'password' : 'text'" name="password" id="password" autocomplete="off" type="password"class="form-control form-control-lg">
@@ -53,7 +61,7 @@
                     @enderror
                 </div>
                 <div class="col-md-12 form-group">
-                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5" wire:loading.attr="disabled">
+                    <input type="submit" value="Tambah Akun" class="btn btn-success btn-lg px-5" wire:loading.attr="disabled">
                     <button wire:click.prevent="resetForm" class="btn btn-warning btn-lg px-5" type="button"><i class="icon-refresh"></i> Reset</button>
                     <a href="{{ url('user/list') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>
