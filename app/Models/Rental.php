@@ -36,13 +36,12 @@ class Rental extends Model
         $term = "%$term%";
         $query->where(function ($query) use ($term) {
             $query->where('merk_usaha', 'like', $term)
+                ->orWhere('status_rental', 'like', $term)
                 ->orWhere('nominal', 'like', $term);
         })->orWhereHas('tenant', function ($query) use ($term) {
             $query->where('nama', 'like', $term);
         })->orWhereHas('item', function ($query) use ($term) {
             $query->where('nama', 'like', $term);
-        })->orWhereHas('user', function ($query) use ($term) {
-            $query->where('name', 'like', $term);
         })->orWhereHas('sector', function ($query) use ($term) {
             $query->where('nama', 'like', $term);
         });

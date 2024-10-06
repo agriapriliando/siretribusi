@@ -24,7 +24,6 @@
                 <div wire:ignore class="col-md-6 form-group">
                     <label>Pilih Objek Sewa</label>
                     <select wire:model="item_id" class="form-select w-100" id="objeksewa" name="item_id" data-placeholder="Cari Lokasi" required>
-                        <option>Pilih Objek Sewa</option>
                         @foreach ($items as $i)
                             <option value="{{ $i->id }}" {{ $i->status == 'Aktif' ? 'disabled' : '' }}>{{ $i->nama }} {{ $i->status == 'Aktif' ? ' - Aktif' : '' }}</option>
                         @endforeach
@@ -74,6 +73,7 @@
                         <option>Pilih Status</option>
                         <option value="Aktif" {{ $status_rental == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                         <option value="Selesai" {{ $status_rental == 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                        <option value="Non Aktif" {{ $status_rental == 'Non Aktif' ? 'selected' : '' }}>Non Aktif</option>
                     </select>
                 </div>
                 <div class="col-md-6 form-group">
