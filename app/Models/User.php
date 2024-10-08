@@ -60,4 +60,9 @@ class User extends Authenticatable
                 ->orWhere('email', 'like', $term);
         });
     }
+
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
 }

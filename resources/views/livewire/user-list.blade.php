@@ -60,8 +60,14 @@
                                         <td>{{ $u->email }} <br> {{ $u->nohp }}</td>
                                         <td class="d-flex">
                                             <a href="{{ url('user/' . $u->id) }}" wire:navigate class="btn btn-sm btn-warning mr-1"><i class="icon-pencil"></i></a>
-                                            <button {{ $u->status == 'Aktif' ? 'disabled' : '' }} type="button" wire:click="delete({{ $u->id }})"
-                                                wire:confirm="Yakin ingin menghapus Pengguna : {{ $u->name }}?" class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
+                                            @if ($u->rentals_count == 0)
+                                                <button type="button" wire:click="delete({{ $u->id }})" wire:confirm="Yakin ingin menghapus Akun : {{ $u->name }}?"
+                                                    class="btn btn-sm btn-danger" {{ $u->rentals_count == 0 ? '' : 'disabled' }}><i class="icon-trash"></i></button>
+                                            @else
+                                                <button type="button"
+                                                    onclick="alert('Akun {{ $u->name }} Tidak Bisa Dihapus, karena masih ada transaksi tertaut akun ini. Cek Daftar Transaksi.')"
+                                                    class="btn btn-sm btn-danger"><i class="icon-trash"></i> X</button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @empty

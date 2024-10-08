@@ -128,9 +128,22 @@
                                                         href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}"><i style="color: #009c17;"
                                                             class="icon-whatsapp text-white"></i> Chat</a>
                                                 @endif
-                                                <button wire:confirm="Yakin Merubah Status Valid?" wire:click="ubah_status({{ $item->id }})"
-                                                    class="btn btn-sm {{ $item->confirmed == 1 ? 'btn-success' : 'btn-danger' }}">{{ $item->confirmed == 1 ? 'Valid by ' . $item->validator : 'Belum Valid' }}
-                                                </button><br>
+                                                <style>
+                                                    .under {
+                                                        text-decoration: underline;
+                                                        cursor: pointer;
+                                                    }
+                                                </style>
+                                                <div class="position-relative" x-data="{ show: false }">
+                                                    <div x-show="show" x-transition @click.outside="show = false" class="position-absolute top-0 start-0 bg-warning px-2 rounded">
+                                                        <span class="under mr-3" @click="show = false"
+                                                            wire:click="ubah_status({{ $item->id }})">{{ $item->confirmed == 1 ? 'Ya, Tidak Valid' : 'Ya, Valid' }}</span>
+                                                        <span class="under" @click="show = false">Batal</span>
+                                                    </div>
+                                                    <button @click="show = true"
+                                                        class="btn btn-sm {{ $item->confirmed == 1 ? 'btn-success' : 'btn-danger' }}">{{ $item->confirmed == 1 ? 'Valid by ' . $item->validator : 'Belum Valid' }}
+                                                    </button>
+                                                </div>
                                                 <div class="bg-primary text-white px-1 pb-1 rounded d-inline" style="font-size: 12px">Dikirim {{ $item->created_at->translatedFormat('d/m/Y H:i') }}
                                                     Wib</div>
                                                 @if ($item->created_at != $item->updated_at)
@@ -141,9 +154,11 @@
                                             </div>
                                         </td>
                                         <td class="d-print-none">
-                                            <button type="button" wire:click="hapusItem({{ $item->id }})"
-                                                wire:confirm="Yakin ingin menghapus bukti Pembayaran {{ $item->nama }}? Setelah terhapus, data tidak bisa dipulihkan."
-                                                class="btn btn-danger d-none d-md-block"><i class="icon-trash"></i></button>
+                                            @if ($item->confirmed == 0)
+                                                <button type="button" wire:click="hapusItem({{ $item->id }})"
+                                                    wire:confirm="Yakin menghapus bukti Pembayaran {{ $item->nama }}-{{ $item->kode }}? Data akan terhapus permanen dan tidak bisa dipulihkan."
+                                                    class="btn btn-danger d-none d-md-block"><i class="icon-trash"></i></button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
