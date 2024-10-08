@@ -10,16 +10,19 @@
         @endif
         <div class="row justify-content-center text-center">
             <div class="col-lg-7 mb-5">
-                <h2 class="section-title-underline"> <i class="icon-plus"></i>
-                    <span>Update Data Validasi Bukti Pembayaran <br>
+                <h2 class="section-title-underline">
+                    <span>Data Validasi Bukti Pembayaran <br>
                         Kode : {{ $proofpayment->kode }}</span>
                 </h2>
             </div>
         </div>
         <form wire:submit.prevent="update">
             <div class="row">
+                <div class="col-12">
+                    <a href="{{ url('upload/list') }}" wire:navigate class="btn btn-warning btn btn-sm px-5 float-right"><i class="icon-arrow-left"></i> Kembali</a>
+                </div>
                 <div class="col-md-6 form-group">
-                    <label for="username">Nama Penyewa</label>
+                    <label for="username">Nama Wajib Retribusi | No HP</label>
                     <input value="{{ $proofpayment->tenant->nama . ' | ' . $proofpayment->tenant->nohp }}" type="text" id="nama" class="form-control form-control-lg" disabled>
                 </div>
                 <div class="col-md-6 form-group">
@@ -36,12 +39,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="username">Keterangan dari Penyewa</label>
+                        <label for="username">Keterangan Wajib Retribusi</label>
                         <textarea wire:model="ket_by_tenant" class="form-control form-control-lg" rows="4"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="username">Keterangan dari Admin</label>
-                        <textarea wire:model="ket_by_admin" class="form-control form-control-lg" rows="4"></textarea>
+                        <label for="username">Catatan dari Operator</label>
+                        <textarea wire:model="ket_by_admin" class="form-control form-control-lg" rows="2"></textarea>
                     </div>
                     <div class="form-group">
                         <select wire:model.live="confirmed" class="custom-select custom-select">
@@ -50,16 +53,16 @@
                         </select>
                         <div class="mt-2 {{ $confirmed == 0 ? '' : 'd-none' }}">
                             <label for="email">Alasan Tidak Valid</label>
-                            <textarea wire:model="keterangan" type="text" id="keterangan" class="form-control form-control-lg" rows="3"></textarea>
+                            <textarea wire:model="keterangan" type="text" id="keterangan" class="form-control form-control-lg" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 form-group">
-                    <label for="username">File Bukti</label>
+                    <label for="username">Bukti Pembayaran</label>
                     <a wire:ignore class="fancy" href="{{ asset('storage/file_bukti/' . $proofpayment->file_bukti) }}"><img src="{{ asset('storage/file_bukti/' . $proofpayment->file_bukti) }}"
                             class="img-fluid" alt=""></a>
-                    <input value="Tanggal Upload : {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $proofpayment->created_at)->translatedFormat('j M Y H:i') }} Wib" type="text"
-                        class="form-control form-control-lg mt-2" disabled>
+                    <input value="Dikirim : {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $proofpayment->created_at)->translatedFormat('j M Y H:i') }} Wib" type="text"
+                        class="form-control mt-2" disabled>
                 </div>
                 <div class="col-md-6 form-group d-none">
                     <select wire:model.live="confirmed" class="custom-select custom-select">
@@ -72,7 +75,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 form-group">
-                    <input type="submit" value="Update" class="btn btn-success btn-lg px-5">
+                    <input type="submit" value="Simpan" class="btn btn-success btn-lg px-5">
                     <a href="{{ url('upload/list') }}" wire:navigate class="btn btn-warning btn-lg px-5"><i class="icon-arrow-left"></i> Kembali</a>
                 </div>
             </div>
