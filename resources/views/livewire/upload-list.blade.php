@@ -67,7 +67,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="row d-flex justify-content-end">
+                    <div class="row d-flex justify-content-end d-print-none">
                         <div class="col-12 col-md-6">
                             <div class="input-group mb-3">
                                 <input type="text" wire:model.live.debounce.500ms="search" class="form-control" placeholder="Pencarian">
@@ -99,69 +99,58 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Nama Penyewa</th>
-                                    <th>Kode</th>
-                                    <th class="d-none d-md-block">Tanggal</th>
+                                    <th>Wajib Retribusi | Kode Bayar</th>
                                     <th class="d-print-none">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($uploads as $item)
                                     <tr wire:key={{ $item->id }} style="background-color: {{ $item->confirmed == 1 ? '#beffc8' : '#ffbebe' }};">
-                                        <td>{{ ($uploads->currentpage() - 1) * $uploads->perpage() + $loop->index + 1 }}</td>
-                                        <td style="max-width: 350px">
-                                            {{ $item->nama }}
-                                            <div style="font-style: italic">
-                                                Sejumlah @currency($item->nominal)
+                                        <td class="d-flex flex-column">
+                                            <div class="font-weight-bold mb-1">
+                                                {{ ($uploads->currentpage() - 1) * $uploads->perpage() + $loop->index + 1 }}.
+                                                {{ $item->nama }} <span class="d-inline bg-warning px-1 pb-1 rounded">{{ $item->kode }}</span>
                                             </div>
-                                            @if ($item->confirmed == 1)
-                                                <a target="_blank" class="btn btn-success btn-sm"
-                                                    href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}%0APembayaran%20Retribusi%20Anda%20dengan%20Kode%20{{ $item->kode }}%20Telah%20Divalidasi.%0ATerima%20Kasih."><i
-                                                        style="color: #009c17;" class="icon-whatsapp text-white"></i> Konfirmasi Validasi</a>
-                                            @else
-                                                <a target="_blank" class="btn btn-success btn-sm"
-                                                    href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}"><i style="color: #009c17;"
-                                                        class="icon-whatsapp text-white"></i> Chat</a>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <span class="font-weight-bold">{{ $item->kode }}</span>
-                                            <button wire:click="lihat_bukti({{ $item->id }})" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
-                                                <i class="icon-eye"></i>
-                                            </button><br>
-                                            <span wire:confirm="Yakin Merubah Status Valid?" wire:click="ubah_status({{ $item->id }})"
-                                                class="btn btn-sm {{ $item->confirmed == 1 ? 'btn-success' : 'btn-danger' }}">{{ $item->confirmed == 1 ? 'Valid by ' . $item->validator : 'Belum Valid' }}</span>
-                                            <div class="d-md-none">
-                                                <span class="badge pill-badge badge-warning">Submit {{ $item->created_at->translatedFormat('d/m/Y H:i') }} Wib</span><br>
-                                                <span class="badge pill-badge badge-warning">Updated {{ $item->updated_at->translatedFormat('d/m/Y H:i') }} Wib</span>
+                                            <div class="bg-primary text-white px-2 pb-1 rounded mb-1" style="font-size: 18px">
+                                                Nominal @currency($item->nominal) - {{ Str::limit($item->ket_by_tenant, 60, '...') }}
                                             </div>
-                                        </td>
-                                        <td class="d-none d-md-block">
-                                            Dikirim {{ $item->created_at->translatedFormat('d M Y H:i') }} Wib<br>
-                                            Updated {{ $item->updated_at->translatedFormat('d M Y H:i') }} Wib
+                                            <div class="d-print-none">
+                                                <a href="{{ url('upload/update/' . $item->id) }}" wire:navigate class="btn btn-success btn-sm"><i class="icon-edit"></i> Detail</a>
+                                                <button wire:click="lihat_bukti({{ $item->id }})" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
+                                                    <i class="icon-eye"> Bukti</i>
+                                                </button>
+                                                @if ($item->confirmed == 1)
+                                                    <a target="_blank" class="btn btn-success btn-sm"
+                                                        href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}%0APembayaran%20Retribusi%20Anda%20dengan%20Kode%20{{ $item->kode }}%20Telah%20Divalidasi.%0ATerima%20Kasih."><i
+                                                            style="color: #009c17;" class="icon-whatsapp text-white"></i> Konfirmasi Validasi</a>
+                                                @else
+                                                    <a target="_blank" class="btn btn-success btn-sm"
+                                                        href="https://api.whatsapp.com/send/?phone={{ $item->tenant->nohp }}&text=Hai%20{{ $item->tenant->nama }}"><i style="color: #009c17;"
+                                                            class="icon-whatsapp text-white"></i> Chat</a>
+                                                @endif
+                                                <button wire:confirm="Yakin Merubah Status Valid?" wire:click="ubah_status({{ $item->id }})"
+                                                    class="btn btn-sm {{ $item->confirmed == 1 ? 'btn-success' : 'btn-danger' }}">{{ $item->confirmed == 1 ? 'Valid by ' . $item->validator : 'Belum Valid' }}
+                                                </button><br>
+                                                <div class="bg-primary text-white px-1 pb-1 rounded d-inline" style="font-size: 12px">Dikirim {{ $item->created_at->translatedFormat('d/m/Y H:i') }}
+                                                    Wib</div>
+                                                @if ($item->created_at != $item->updated_at)
+                                                    <div class="bg-primary text-white px-1 pb-1 rounded d-inline" style="font-size: 12px">Updated
+                                                        {{ $item->updated_at->translatedFormat('d/m/Y H:i') }}
+                                                        Wib</div>
+                                                @endif
+                                            </div>
                                         </td>
                                         <td class="d-print-none">
-                                            <div class="d-flex">
-                                                <a href="{{ url('upload/update/' . $item->id) }}" wire:navigate class="btn btn-sm btn-warning mr-2"><i class="icon-pencil"></i></a>
-                                                <button type="button" wire:click="hapusItem({{ $item->id }})"
-                                                    wire:confirm="Yakin ingin menghapus bukti Pembayaran {{ $item->nama }}? Setelah terhapus, data tidak bisa dipulihkan."
-                                                    class="btn btn-sm btn-danger"><i class="icon-trash"></i></button>
-                                            </div>
+                                            <button type="button" wire:click="hapusItem({{ $item->id }})"
+                                                wire:confirm="Yakin ingin menghapus bukti Pembayaran {{ $item->nama }}? Setelah terhapus, data tidak bisa dipulihkan."
+                                                class="btn btn-danger d-none d-md-block"><i class="icon-trash"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama Penyewa</th>
-                                    <th>Kode</th>
-                                    <th class="d-none d-md-block">Tanggal</th>
-                                    <th class="d-print-none">Aksi</th>
-                                </tr>
-                            </tfoot>
                         </table>
+                        <small class="text-success">*Warna Hijau - Sudah Valid</small>
+                        <small class="text-danger">*Warna Merah - Belum Valid</small>
                     </div>
                 </div>
             </div>
