@@ -184,6 +184,7 @@
                         <small class="text-success">*Warna Hijau - Sudah Valid</small><br>
                         <small class="text-danger">*Warna Merah - Belum Valid</small>
                     </div>
+                    {{ $uploads->links() }}
                 </div>
             </div>
         </div>
