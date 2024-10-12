@@ -30,11 +30,12 @@
                         <h4 class="modal-title">Bukti Bayar : {{ $bukti->nama }} | {{ $bukti->ket_by_tenant }}</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <img src="{{ asset('storage/file_bukti/' . $bukti->file_bukti) }}" alt="" class="img-fluid">
-                    </div>
+                    @if ($bukti)
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <img src="{{ asset('storage/file_bukti/' . $bukti->file_bukti) }}" alt="" class="img-fluid">
+                        </div>
+                    @endif
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -67,6 +68,12 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <div class="row mb-2">
+                        <div class="col">
+                            Panduan : <br>
+                            + Tekan Tombol <span class="btn btn-danger btn-sm"><i class="icon-check"></i></span> untuk Melakukan Validasi
+                        </div>
+                    </div>
                     <div class="row d-flex justify-content-end d-print-none">
                         <div class="col-12 col-md-6">
                             <div class="input-group mb-3">
@@ -140,8 +147,8 @@
                                                             wire:click="ubah_status({{ $item->id }})">{{ $item->confirmed == 1 ? 'Ya, Tidak Valid' : 'Ya, Valid' }}</span>
                                                         <span class="under" @click="show = false">Batal</span>
                                                     </div>
-                                                    <button @click="show = true"
-                                                        class="btn btn-sm {{ $item->confirmed == 1 ? 'btn-success' : 'btn-danger' }}">{{ $item->confirmed == 1 ? 'Valid by ' . $item->validator : 'Belum Valid' }}
+                                                    <button @click="show = true" class="btn btn-sm {{ $item->confirmed == 1 ? 'btn-success' : 'btn-danger' }}"><i class="icon-check"></i>
+                                                        {{ $item->confirmed == 1 ? 'Valid by ' . $item->validator : 'Belum Valid' }}
                                                     </button>
                                                 </div>
                                                 <div class="bg-primary text-white px-1 pb-1 rounded d-inline" style="font-size: 12px">Dikirim {{ $item->created_at->translatedFormat('d/m/Y H:i') }}
@@ -164,7 +171,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <small class="text-success">*Warna Hijau - Sudah Valid</small>
+                        <small class="text-success">*Warna Hijau - Sudah Valid</small><br>
                         <small class="text-danger">*Warna Merah - Belum Valid</small>
                     </div>
                 </div>
