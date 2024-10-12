@@ -74,16 +74,17 @@
                             + Tekan Tombol <span class="btn btn-danger btn-sm"><i class="icon-check"></i></span> untuk Melakukan Validasi
                         </div>
                     </div>
-                    <div class="row d-flex justify-content-end d-print-none">
-                        <div class="col-12 col-md-6">
+                    <div class="row d-flexd-print-none">
+                        <div class="col-11 col-md-8">
                             <div class="input-group mb-3">
                                 <input type="text" wire:model.live.debounce.500ms="search" class="form-control" placeholder="Pencarian">
                                 <div class="input-group-append">
+                                    <input type="date" wire:model.live="search_tgl" class="form-control">
                                     <button wire:click="resetSearch" class="input-group-text" id="basic-addon2">Reset</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-6 col-md-2">
                             <div class="form-group">
                                 <select wire:model.live="search_confirmed" class="form-control">
                                     <option value="">Semua Status</option>
@@ -97,16 +98,25 @@
                                 <select wire:model.live="pagelength" class="form-control">
                                     <option value="10">Lihat 10</option>
                                     <option value="20">Lihat 20</option>
-                                    <option value="500">Lihat Semua</option>
+                                    <option value="">Lihat Semua</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
+                            @php
+                                $sum = 0;
+                                $result = $uploads;
+                                foreach ($result as $key => $value) {
+                                    if (isset($value->nominal)) {
+                                        $sum += $value->nominal;
+                                    }
+                                }
+                            @endphp
                             <thead>
                                 <tr>
-                                    <th>Wajib Retribusi | Kode Bayar</th>
+                                    <th>Wajib Retribusi | Kode Bayar | Nominal @currency($sum)</th>
                                     <th class="d-print-none">Aksi</th>
                                 </tr>
                             </thead>
@@ -151,8 +161,8 @@
                                                         {{ $item->confirmed == 1 ? 'Valid by ' . $item->validator : 'Belum Valid' }}
                                                     </button>
                                                 </div>
-                                                <div class="bg-primary text-white px-1 pb-1 rounded d-inline" style="font-size: 12px">Dikirim {{ $item->created_at->translatedFormat('d/m/Y H:i') }}
-                                                    Wib</div>
+                                                <div class="bg-primary text-white px-1 pb-1 rounded d-inline" style="font-size: 12px">
+                                                    Dikirim {{ $item->created_at->translatedFormat('d/m/Y H:i') }} Wib</div>
                                                 @if ($item->created_at != $item->updated_at)
                                                     <div class="bg-primary text-white px-1 pb-1 rounded d-inline" style="font-size: 12px">Updated
                                                         {{ $item->updated_at->translatedFormat('d/m/Y H:i') }}

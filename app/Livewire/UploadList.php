@@ -19,12 +19,13 @@ class UploadList extends Component
     public $confirmed;
     public $search_confirmed;
     public $bukti;
+    public $search_tgl;
 
     #[Title('List Bukti Bayar')]
 
     public function resetSearch()
     {
-        $this->reset('search');
+        $this->reset('search', 'search_tgl');
     }
 
     public function hapusItem($id)
@@ -77,6 +78,9 @@ class UploadList extends Component
             'uploads' => Proofpayment::with('user')->search($this->search)
                 ->when($this->search_confirmed, function ($query) {
                     $query->where('confirmed', $this->search_confirmed);
+                })
+                ->when($this->search_tgl, function ($query) {
+                    $query->whereDate('created_at', $this->search_tgl);
                 })
                 ->orderBy('confirmed')->orderBy('created_at', 'DESC')
                 ->paginate($this->pagelength)
